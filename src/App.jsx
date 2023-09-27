@@ -4,6 +4,8 @@ import Plx from "react-plx";
 export default function App() {
   return (
     <div>
+
+
       <Plx
         parallaxData={[
           {
@@ -29,6 +31,12 @@ export default function App() {
       >
         <img style={{ width: "100%" }} src="bg.png" alt="foreground" />
       </Plx>
+
+
+
+
+
+
       <Plx
         parallaxData={[
           {
@@ -37,7 +45,7 @@ export default function App() {
             properties: [
               {
                 startValue: 1,
-                endValue: 1.18,
+                endValue: 1.22 ,
                 property: "scale"
               }
             ]
@@ -47,11 +55,25 @@ export default function App() {
           position: "fixed",
           left: 0,
           top: 0,
-          width: "100%"
+          width: "100%",
+          zIndex: 0
         }}
       >
-        <img style={{ width: "100%" }} src="background.jpg" alt="background" />
+                <img
+          style={{
+            width: "100%"
+          }}
+          src="/background-01.jpg"
+        />
+       
       </Plx>
+
+
+
+
+
+
+
       <Plx
         parallaxData={[
           {
@@ -61,7 +83,7 @@ export default function App() {
               {
                 startValue: 1,
                 endValue: 0,
-                property: "opacity"
+                property: "opacity",
               }
             ]
           }
@@ -69,22 +91,127 @@ export default function App() {
         style={{
           position: "fixed",
           left: 0,
-          top: "26vw",
-          width: "100%"
+          top: "30vw",
+          width: "100%",
+          zIndex: 10
+        }}
+      >
+          <div style={{width: "100%", height: '100px', display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}> 
+
+          <Plx
+            parallaxData={[
+              {
+                start: 0,
+                end: 400,
+                properties: [
+                  {
+                    startValue: 0,
+                    endValue: -200,
+                    property: "translateX",
+                  }
+                ]
+              }
+            ]}
+            style={{ 
+            }}
+          >
+            <img style={{ height: '65px'}} src="code.png" alt="background" />  
+
+          </Plx>
+          
+
+          
+          <Plx
+            parallaxData={[
+              {
+                start: 0,
+                end: 400,
+                properties: [
+                  {
+                    startValue: 0,
+                    endValue: 200,
+                    property: "translateX",
+                  }
+                ]
+              }
+
+            ]}
+            style={{
+
+            }}
+            >
+
+              <img style={{ height: '70px' }} src="warriors.png" alt="background" />
+          </Plx>
+          </div>
+      </Plx>
+
+
+
+
+
+      <Plx
+        parallaxData={[
+          {
+            start: 0,
+            end: 500,
+            properties: [
+              {
+                startValue: 0,
+                endValue: 0,
+                property: "opacity",
+              }
+            ]
+          },
+          {
+            start: 500,
+            end: 700,
+            easing: "ease-in",
+            properties: [
+              {
+                startValue: 0,
+                endValue: 1,
+                property: "opacity"
+              }
+            ]
+          },
+          {
+            start: 0,
+            end: 800,
+            properties: [
+              {
+                startValue: 1,
+                endValue: 1.22 ,
+                property: "scale"
+              }
+            ]
+          }
+        ]}
+        style={{
+          position: "fixed",
+          left: 0,
+          top: 0,
+          width: "100%",
+          zIndex: 1
         }}
       >
         <img
           style={{
-            width: "30vw"
+            width: "100%"
           }}
-          src="/text-img.webp"
-          alt="Goonies"
+          src="/background.jpg"
         />
       </Plx>
-      <div
+
+
+
+
+
+
+      {/* <div
         style={{
           position: "fixed",
-          lefft: 0,
+          left: 0,
           top: 0,
           zIndex: 200,
           paddingTop: "56%",
@@ -98,7 +225,12 @@ export default function App() {
             height: "100%"
           }}
         ></div>
-      </div>
+      </div> */}
+
+
+
+
+
     </div>
   );
 }
