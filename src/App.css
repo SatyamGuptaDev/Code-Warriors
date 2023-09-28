@@ -81,6 +81,6 @@ h1:hover span {
 }
 nav a{
    color: green;
-  text-shadow: 0 0 5px greenyellow, 0 0 20px greenyellow, 0 0 40px greenyellow;
+  text-shadow: 0 0 5px darkgreen, 0 0 20px greenyellow, 0 0 40px greenyellow;
   cursor: pointer;
 }

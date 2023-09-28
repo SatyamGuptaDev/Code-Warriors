@@ -49,7 +49,7 @@ const [showPlayButton, setShowPlayButton] = useState(false);
         ]}
         style={{
           position: "fixed",
-          left: "34vw",
+          left: "30vw",
           top: "-50px",
           width: "30%",
           zIndex: 200
