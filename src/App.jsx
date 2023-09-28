@@ -5,6 +5,41 @@ export default function App() {
   return (
     <div>
 
+      <Plx
+        parallaxData={[
+          {
+            start: 600,
+            end: 700,
+            easing: "ease-in",
+            properties: [
+              {
+                startValue: 100,
+                endValue: 0,
+                property: "translateY"
+              }
+            ]
+          }
+        ]}
+        style={{
+          position: "fixed",
+          left: 0,
+          top: 40,
+          width: "60%",
+          zIndex: 200
+        }}
+      >
+        <nav style={{width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", color: "white"}}>
+          <a>Home</a>
+          <a>About</a>
+          <a>Project</a>
+          <a>Developers</a>
+          
+        </nav>
+      </Plx>
+
+
+
+
 
       <Plx
         parallaxData={[
