@@ -61,7 +61,7 @@ body {
   }
 }
 .play-button-container.crash {
-  animation: crash .3s ease-in-out forwards;
+  animation: crash .5s ease-in-out forwards;
 }
 h1 span {
   transition: 0.5s ease-out;
@@ -74,13 +74,51 @@ h1:hover span:nth-child(1) {
 h1:hover span:nth-child(2) {
   margin-left: 30px;
 }
-
-h1:hover span {
-  color: green;
-  text-shadow: 0 0 5px greenyellow, 0 0 20px greenyellow, 0 0 40px greenyellow;
-}
 nav a{
    color: green;
   text-shadow: 0 0 5px darkgreen, 0 0 20px greenyellow, 0 0 40px greenyellow;
   cursor: pointer;
+}
+h1{
+  color: green;
+  text-shadow: 0 0 5px darkgreen, 0 0 20px greenyellow, 0 0 40px greenyellow;
+  cursor: pointer;
+}
+.btn,
+a.btn {
+  display: inline-block;
+  text-transform: none;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1em;
+  border-radius: 6px;
+  padding: 15px 20px;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
+  margin: 8px;
+  letter-spacing: .1em;
+  color: green;
+    text-shadow: 0 0 5px greenyellow, 0 0 20px greenyellow, 0 0 40px greenyellow;
+    cursor: pointer;
+}
+
+.btn,
+a.btn:hover {
+  border-radius: 8px;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .2);
+  transform: scale(1.06);
+  text-shadow: 0 -1px rgba(0, 0, 0, .1);
+  color: green;
+    text-shadow: 0 0 5px greenyellow, 0 0 20px greenyellow, 0 0 40px greenyellow;
+    cursor: pointer;
+}
+
+.btn,
+a.btn:active {
+  transform: scale(0.98);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .2), 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+.btn,
+a.btn:visited {
+  transform: scale(1);
 }

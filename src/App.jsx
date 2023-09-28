@@ -285,16 +285,14 @@ const [showPlayButton, setShowPlayButton] = useState(false);
           style={{
             position: "fixed",
             top: "70%",
-            left: "45%",
+            left: "38%",
             transform: "translate(-50%, -50%)",
             zIndex: 1000,
           }}
         > 
-       <button style={{ background: "transparent",color:"green" }}>
-  <h1>
-    <span>PLAY</span>
-  </h1>
-</button>
+     <h1>
+     <a  href="" className="btn" > Play Game</a>
+     </h1>
         
         </div>
       )}
