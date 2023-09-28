@@ -9,3 +9,73 @@ body {
   background: #000;
   height: 200vh;
 }
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+.scroll-down-container {
+  display: flex;
+  align-items: center;
+  color: grey;
+  font-size: 45px;
+}
+
+.scroll-text {
+  margin-right: 10px;
+}
+
+.arrow {
+  animation: bounce 3s infinite;
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(20px);
+  }
+}
+@keyframes crash {
+  0% {
+    transform: translateY(-500px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+.play-button-container.crash {
+  animation: crash .3s ease-in-out forwards;
+}
+h1 span {
+  transition: 0.5s ease-out;
+}
+
+h1:hover span:nth-child(1) {
+  margin-right: 5px;
+}
+
+h1:hover span:nth-child(2) {
+  margin-left: 30px;
+}
+
+h1:hover span {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 40px #fff;
+}

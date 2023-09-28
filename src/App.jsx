@@ -1,7 +1,34 @@
 import "./App.css";
 import Plx from "react-plx";
+import React, { useState, useEffect } from "react";
 
 export default function App() {
+const [showScrollText, setShowScrollText] = useState(true);
+const [showPlayButton, setShowPlayButton] = useState(false);
+
+  useEffect(() => {
+   const handleScroll = () => {
+      const scrollY = window.scrollY; // Define scrollY here
+
+      if (scrollY > 100) {
+        setShowScrollText(false);
+      } else {
+        setShowScrollText(true);
+      }
+
+      if (scrollY >= document.documentElement.scrollHeight - window.innerHeight) {
+        setShowPlayButton(true);
+      } else {
+        setShowPlayButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div>
 
@@ -202,32 +229,40 @@ export default function App() {
           src="/background.jpg"
         />
       </Plx>
-
-
-
-
-
-
-      {/* <div
+{showScrollText && (
+        <div
+        className={`scroll-down-container ${showScrollText ? "scroll-visible" : ""}`}
         style={{
           position: "fixed",
-          left: 0,
-          top: 0,
-          zIndex: 200,
-          paddingTop: "56%",
-          height: "400vh",
-          width: "100%"
+          bottom: "10px", // Adjust the bottom position
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 1000,
         }}
       >
+        <span className="scroll-text">Scroll</span>
+        <span className="arrow">↓</span>
+        </div>
+      )}
+      {showPlayButton && (
         <div
+        className={`play-button-container ${showPlayButton ? "crash" : ""}`}
           style={{
-            background: "#000",
-            height: "100%"
+            position: "fixed",
+            top: "70%",
+            left: "45%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 1000,
           }}
-        ></div>
-      </div> */}
-
-
+        > 
+       <button style={{ background: "transparent" }}>
+  <h1>
+    <span>PLAY</span>
+  </h1>
+</button>
+        
+        </div>
+      )}
 
 
 
