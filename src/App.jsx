@@ -32,6 +32,41 @@ const [showPlayButton, setShowPlayButton] = useState(false);
   return (
     <div>
 
+      <Plx
+        parallaxData={[
+          {
+            start: 500,
+            end: 600,
+            easing: "ease-in",
+            properties: [
+              {
+                startValue: 0,
+                endValue: 55,
+                property: "translateY"
+              }
+            ]
+          }
+        ]}
+        style={{
+          position: "fixed",
+          left: "34vw",
+          top: "-50px",
+          width: "30%",
+          zIndex: 200
+        }}
+      >
+        <nav style={{paddingTop: "5px", width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", color: "white"}}>
+          <a style={{textDecoration: "none", color:"white"}}>Home</a>
+          <a style={{textDecoration: "none", color:"white"}} >About</a>
+          <a style={{textDecoration: "none", color:"white"}} >Project</a>
+          <a style={{textDecoration: "none", color:"white"}} >Developers</a>
+          
+        </nav>
+      </Plx>
+
+
+
+
 
       <Plx
         parallaxData={[
@@ -192,7 +227,7 @@ const [showPlayButton, setShowPlayButton] = useState(false);
           },
           {
             start: 500,
-            end: 700,
+            end: 600,
             easing: "ease-in",
             properties: [
               {
@@ -229,6 +264,7 @@ const [showPlayButton, setShowPlayButton] = useState(false);
           src="/background.jpg"
         />
       </Plx>
+<<<<<<< HEAD
 {showScrollText && (
         <div
         className={`scroll-down-container ${showScrollText ? "scroll-visible" : ""}`}
@@ -263,6 +299,9 @@ const [showPlayButton, setShowPlayButton] = useState(false);
         
         </div>
       )}
+=======
+
+>>>>>>> 837e46029970355d956aba0ece545af74ca4bdee
 
 
 
