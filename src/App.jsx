@@ -355,24 +355,16 @@ export default function App() {
           style={{
             position: "fixed",
             top: "70%",
-            left: "38%",
+            left: "45%",
             transform: "translate(-50%, -50%)",
             zIndex: 1000,
           }}
-<<<<<<< HEAD
         >
           <button style={{ background: "transparent", color: "green" }}>
             <h1>
               <span>PLAY</span>
             </h1>
           </button>
-=======
-        > 
-     <h1>
-     <a  href="" className="btn" > Play Game</a>
-     </h1>
-        
->>>>>>> 6c7d0da3ac56904927ba7536d18fcc2d6f893847
         </div>
       )}
       <div ref={scrollRef}></div>

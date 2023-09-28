@@ -63,7 +63,7 @@ body {
   }
 }
 .play-button-container.crash {
-  animation: crash .5s ease-in-out forwards;
+  animation: crash .3s ease-in-out forwards;
 }
 h1 span {
   transition: 0.5s ease-out;
@@ -81,11 +81,29 @@ h1:hover span:nth-child(2) {
 }
 
 h1:hover span {
-  color: green;
-  text-shadow: 0 0 5px greenyellow, 0 0 20px greenyellow, 0 0 40px greenyellow;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgb(125, 209, 0), 0 0 20px rgb(125, 209, 0), 0 0 20px rgb(125, 209, 0);
 }
-nav a{
-   color: green;
+
+.home-nav a{
+  /* text-shadow: 0 0 5px darkgreen, 0 0 20px greenyellow, 0 0 40px greenyellow; */
+  cursor: pointer;
+}
+
+.home-nav{
+  /* From https://css.glass */
+  background: rgba(0, 37, 17, 0.2);
+  border-radius: 0px 0px 15px 15px;
+    box-shadow: 0 4px 30px black;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    font-weight: 450;
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  }
+.home-nav a:hover{
   text-shadow: 0 0 5px darkgreen, 0 0 20px greenyellow, 0 0 40px greenyellow;
   font-weight: 600 ;
   transition: 0.1s ease-in;
@@ -108,3 +126,4 @@ html::-webkit-scrollbar-thumb {
   background: rgb(45, 45, 45);
   border: 3px solid rgb(0, 0, 0);
 }
+
