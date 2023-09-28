@@ -8,13 +8,13 @@ export default function App() {
       <Plx
         parallaxData={[
           {
-            start: 600,
-            end: 700,
+            start: 500,
+            end: 600,
             easing: "ease-in",
             properties: [
               {
-                startValue: 100,
-                endValue: 0,
+                startValue: 0,
+                endValue: 55,
                 property: "translateY"
               }
             ]
@@ -22,17 +22,17 @@ export default function App() {
         ]}
         style={{
           position: "fixed",
-          left: 0,
-          top: 40,
-          width: "60%",
+          left: "34vw",
+          top: "-50px",
+          width: "30%",
           zIndex: 200
         }}
       >
-        <nav style={{width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", color: "white"}}>
-          <a>Home</a>
-          <a>About</a>
-          <a>Project</a>
-          <a>Developers</a>
+        <nav style={{paddingTop: "5px", width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", color: "white"}}>
+          <a style={{textDecoration: "none", color:"white"}}>Home</a>
+          <a style={{textDecoration: "none", color:"white"}} >About</a>
+          <a style={{textDecoration: "none", color:"white"}} >Project</a>
+          <a style={{textDecoration: "none", color:"white"}} >Developers</a>
           
         </nav>
       </Plx>
@@ -200,7 +200,7 @@ export default function App() {
           },
           {
             start: 500,
-            end: 700,
+            end: 600,
             easing: "ease-in",
             properties: [
               {
@@ -237,31 +237,6 @@ export default function App() {
           src="/background.jpg"
         />
       </Plx>
-
-
-
-
-
-
-      {/* <div
-        style={{
-          position: "fixed",
-          left: 0,
-          top: 0,
-          zIndex: 200,
-          paddingTop: "56%",
-          height: "400vh",
-          width: "100%"
-        }}
-      >
-        <div
-          style={{
-            background: "#000",
-            height: "100%"
-          }}
-        ></div>
-      </div> */}
-
 
 
 
