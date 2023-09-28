@@ -8,7 +8,7 @@ const [showPlayButton, setShowPlayButton] = useState(false);
 
   useEffect(() => {
    const handleScroll = () => {
-      const scrollY = window.scrollY; // Define scrollY here
+      const scrollY = window.scrollY;
 
       if (scrollY > 100) {
         setShowScrollText(false);
@@ -55,7 +55,7 @@ const [showPlayButton, setShowPlayButton] = useState(false);
           zIndex: 200
         }}
       >
-        <nav style={{paddingTop: "5px", width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", color: "white"}}>
+        <nav style={{paddingTop: "5px", width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", color: "white",gap:"110px"}}>
           <a style={{textDecoration: "none", color:"white"}}>Home</a>
           <a style={{textDecoration: "none", color:"white"}} >About</a>
           <a style={{textDecoration: "none", color:"white"}} >Project</a>
@@ -264,7 +264,6 @@ const [showPlayButton, setShowPlayButton] = useState(false);
           src="/background.jpg"
         />
       </Plx>
-<<<<<<< HEAD
 {showScrollText && (
         <div
         className={`scroll-down-container ${showScrollText ? "scroll-visible" : ""}`}
@@ -291,7 +290,7 @@ const [showPlayButton, setShowPlayButton] = useState(false);
             zIndex: 1000,
           }}
         > 
-       <button style={{ background: "transparent" }}>
+       <button style={{ background: "transparent",color:"green" }}>
   <h1>
     <span>PLAY</span>
   </h1>
@@ -299,12 +298,6 @@ const [showPlayButton, setShowPlayButton] = useState(false);
         
         </div>
       )}
-=======
-
->>>>>>> 837e46029970355d956aba0ece545af74ca4bdee
-
-
-
     </div>
   );
 }

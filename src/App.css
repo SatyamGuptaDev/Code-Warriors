@@ -76,6 +76,11 @@ h1:hover span:nth-child(2) {
 }
 
 h1:hover span {
-  color: #fff;
-  text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 40px #fff;
+  color: green;
+  text-shadow: 0 0 5px greenyellow, 0 0 20px greenyellow, 0 0 40px greenyellow;
+}
+nav a{
+   color: green;
+  text-shadow: 0 0 5px greenyellow, 0 0 20px greenyellow, 0 0 40px greenyellow;
+  cursor: pointer;
 }
