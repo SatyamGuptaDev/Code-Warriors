@@ -95,8 +95,8 @@ h1:hover span {
   background: rgba(0, 37, 17, 0.2);
   border-radius: 0px 0px 15px 15px;
     box-shadow: 0 4px 30px black;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px) brightness(1.1);
+    -webkit-backdrop-filter: blur(3px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     font-weight: 450;
     font-size: 18px;

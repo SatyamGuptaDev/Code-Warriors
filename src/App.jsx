@@ -5,6 +5,7 @@ import { useSpring, animated } from "react-spring";
 import { Link } from "react-router-dom";
 import { AiOutlineDown } from "react-icons/ai";
 import { useRef } from "react";
+import Volume from "./components/icons/volume";
 
 export default function App() {
   const [showScrollText, setShowScrollText] = useState(true);
@@ -99,6 +100,7 @@ export default function App() {
           top: "-50px",
           width: "30vw",
           zIndex: 200
+          // filter: "brightness(400%)"
         }}
       >
         <nav className="home-nav" style={{paddingTop:"-20px", display: "flex",height: "32px", paddingBottom: "5px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white"}}>
@@ -270,7 +272,7 @@ export default function App() {
               },
               {
                 startValue: 1,
-                endValue: 0.9,
+                endValue: 0.8,
                 property: "brightness",
               }
             ]
@@ -368,6 +370,9 @@ export default function App() {
         </div>
       )}
       <div ref={scrollRef}></div>
+      <div style={{position:"fixed", bottom: "20px", left: "30px", zIndex: 300}} > <Volume /> </div>
     </div>
+
+
   );
 }
