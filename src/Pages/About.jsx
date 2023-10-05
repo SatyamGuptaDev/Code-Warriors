@@ -15,7 +15,7 @@
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 
-// function About() {
+function About() {
     
 //     useEffect(() => {
 //         AOS.init({
@@ -182,5 +182,5 @@
 //         </>
     
 //   );
-// }
-// export default About;
+}
+export default About;

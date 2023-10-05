@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.16",
     "boxicons": "^2.1.4",
     "font-awesome": "^4.7.0",

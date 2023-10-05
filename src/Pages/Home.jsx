@@ -2,10 +2,11 @@ import "./css/Home.css";
 import Plx from "react-plx";
 import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AiOutlineDown } from "react-icons/ai";
 import { useRef } from "react";
-import Volume from "../components/icons/Volume.jsx";
+import Volume from "../components/icons/volume";
+
 
 export default function Home() {
   const [showScrollText, setShowScrollText] = useState(true);
@@ -104,8 +105,8 @@ export default function Home() {
         }}
       >
         <nav className="home-nav" style={{paddingTop:"-20px", display: "flex",height: "32px", paddingBottom: "5px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white"}}>
-          <a style={{textDecoration: "none", color:"white"}}>Home</a>
-          <a style={{textDecoration: "none", color:"white"}} >About</a>
+          <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
+          <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
           <a style={{textDecoration: "none", color:"white"}} >Project</a>
           <a style={{textDecoration: "none", color:"white"}} >Developers</a>
         </nav>
