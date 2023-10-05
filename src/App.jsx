@@ -1,378 +1,53 @@
-import "./App.css";
-import Plx from "react-plx";
-import React, { useState, useEffect } from "react";
-import { useSpring, animated } from "react-spring";
-import { Link } from "react-router-dom";
-import { AiOutlineDown } from "react-icons/ai";
-import { useRef } from "react";
-import Volume from "./components/icons/volume";
+import { useState } from 'react'
+import './App.css'
+import Home from './components/Home';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Project from './components/project';
+import About from './components/About';
+import ScrollToTop from './ScrollToTop';
+import Maps from './components/Maps';
+import 'leaflet/dist/leaflet.css';
+import Mobile from './components/mobile-screen';
+import Contact from './components/Contact/index';
+import Dashboard from './components/Dashboard/src/pages/Dashboard/Dashboard';
+import Layout from './components/Dashboard/src/components/Layout/Layout';
+// import MapComponent from './components/testmap';
+import { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-export default function App() {
-  const [showScrollText, setShowScrollText] = useState(true);
-  const [showPlayButton, setShowPlayButton] = useState(false);
-  const [showPressEnter, setShowPressEnter] = useState(false);
-  const scrollRef = useRef(null);
+function App() {
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      if (scrollY > 100) {
-        setShowScrollText(false);
-      } else {
-        setShowScrollText(true);
-      }
-
-      if (
-        scrollY >=
-        document.documentElement.scrollHeight - window.innerHeight
-      ) {
-        setShowPlayButton(true);
-      } else {
-        setShowPlayButton(false);
-      }
-    };
-
-    const handleKeyPress = (event) => {
-      if (event.key === "Enter") {
-        smoothScrollTo(scrollRef.current);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("keydown", handleKeyPress);
-    };
+    AOS.init();
+    AOS.refresh();
   }, []);
 
-  const smoothScrollTo = (element) => {
-    const targetY = element.getBoundingClientRect().top + window.scrollY;
-    const initialY = window.scrollY;
-    const distance = Math.abs(targetY - initialY);
-    const duration = 5000; // Adjust the duration (in milliseconds) for slower or faster scrolling
-
-    let start;
-
-    const step = (timestamp) => {
-      if (!start) start = timestamp;
-
-      const time = timestamp - start;
-      const percent = Math.min(time / duration, 1);
-
-      window.scrollTo(0, initialY + percent * (targetY - initialY));
-
-      if (time < duration) {
-        requestAnimationFrame(step);
-      }
-    };
-
-    requestAnimationFrame(step);
-  };
-
-
-
   return (
+    <>
+      <div className='body-app' >
+          <ScrollToTop />
+            <nav className='nav-bar'>
+                  <NavBar />
+            </nav>
+    
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/project" element={<Project />} />
+            <Route path="/about" element={<About />} />
 
 
-    <div>
+          </Routes>
 
-      <Plx
-        parallaxData={[
-          {
-            start: 600,
-            end: 700,
-            easing: "ease-in",
-            properties: [
-              {
-                startValue: 0,
-                endValue: 45,
-                property: "translateY"
-              }
-            ]
-          }
-        ]}
-        style={{
-          position: "fixed",
-          left: "50%",
-          top: "-50px",
-          width: "30vw",
-          zIndex: 200
-          // filter: "brightness(400%)"
-        }}
-      >
-        <nav className="home-nav" style={{paddingTop:"-20px", display: "flex",height: "32px", paddingBottom: "5px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white"}}>
-          <a style={{textDecoration: "none", color:"white"}}>Home</a>
-          <a style={{textDecoration: "none", color:"white"}} >About</a>
-          <a style={{textDecoration: "none", color:"white"}} >Project</a>
-          <a style={{textDecoration: "none", color:"white"}} >Developers</a>
-        </nav>
-      </Plx>
-
-
-
-
-
-      <Plx
-        parallaxData={[
-          {
-            start: 0,
-            end: 700,
-            easing: "ease-in",
-            properties: [
-              {
-                startValue: 1,
-                endValue: 1.6,
-                property: "scale"
-              }
-            ]
-          }
-        ]}
-        style={{
-          position: "fixed",
-          left: 0,
-          top: 0,
-          width: "100%",
-          zIndex: 100
-        }}
-      >
-        <img style={{ width: "100%" }} src="bg.png" alt="foreground" />
-      </Plx>
-
-
-
-
-
-
-      <Plx
-        parallaxData={[
-          {
-            start: 0,
-            end: 800,
-            properties: [
-              {
-                startValue: 1,
-                endValue: 1.22 ,
-                property: "scale"
-              }
-            ]
-          }
-        ]}
-        style={{  
-          position: "fixed",
-          left: 0,
-          top: 0,
-          width: "100%",
-          zIndex: 0
-        }}
-      >
-                <img
-          style={{
-            width: "100%"
-          }}
-          src="/background-01.jpg"
-        />
-       
-      </Plx>
-
-
-
-
-
-
-
-      <Plx
-        parallaxData={[
-          {
-            start: 0,
-            end: 400,
-            properties: [
-              {
-                startValue: 1,
-                endValue: 0,
-                property: "opacity",
-              }
-            ]
-          }
-        ]}
-        style={{
-          position: "fixed",
-          left: 0,
-          top: "30vw",
-          width: "100%",
-          zIndex: 10
-        }}
-      >
-          <div style={{width: "100%", height: '100px', display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}> 
-
-          <Plx
-            parallaxData={[
-              {
-                start: 0,
-                end: 400,
-                properties: [
-                  {
-                    startValue: 0,
-                    endValue: -200,
-                    property: "translateX",
-                  }
-                ]
-              }
-            ]}
-            style={{ 
-            }}
-          >
-            <img style={{ height: '65px'}} src="code.png" alt="background" />  
-
-          </Plx>
-          
-
-          
-          <Plx
-            parallaxData={[
-              {
-                start: 0,
-                end: 400,
-                properties: [
-                  {
-                    startValue: 0,
-                    endValue: 200,
-                    property: "translateX",
-                  }
-                ]
-              }
-
-            ]}
-            style={{
-
-            }}
-            >
-
-              <img style={{ height: '70px' }} src="warriors.png" alt="background" />
-          </Plx>
-          </div>
-      </Plx>
-
-
-
-
-
-      <Plx
-        parallaxData={[
-          {
-            start: 0,
-            end: 500,
-            properties: [
-              {
-                startValue: 0,
-                endValue: 0,
-                property: "opacity",
-              },
-              {
-                startValue: 1,
-                endValue: 0.8,
-                property: "brightness",
-              }
-            ]
-          },
-          {
-            start: 500,
-            end: 600,
-            easing: "ease-in",
-            properties: [
-              {
-                startValue: 0,
-                endValue: 1,
-                property: "opacity"
-              }
-            ]
-          },
-          {
-            start: 0,
-            end: 800,
-            properties: [
-              {
-                startValue: 1,
-                endValue: 1.22 ,
-                property: "scale"
-              }
-            ]
-          }
-        ]}
-        style={{
-          position: "fixed",
-          left: 0,
-          top: 0,
-          width: "100%",
-          zIndex: 1
-        }}
-      >
-        <img
-          style={{
-            width: "100%"
-          }}
-          src="/background.jpg"
-        />
-      </Plx>
-
-
-
-
-
-
-
-
-
-
-      {showScrollText && (
-        <div
-          className={`scroll-down-container ${
-            showScrollText ? "scroll-visible" : ""
-          }`}
-          style={{
-            position: "fixed",
-            bottom: "10px", // Adjust the bottom position
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 1000,
-          }}
-        >
-          <span className="scroll-text arrow">Scroll</span>
-          <AiOutlineDown className="arrow" />
-          <span className="press-enter-text">
-            or Press Enter
-            {showPressEnter && (
-              <span className="press-enter-highlight"> (Press Enter)</span>
-            )}
-          </span>
-        </div>
-      )}
-      {showPlayButton && (
-        <div
-          className={`play-button-container ${
-            showPlayButton ? "crash" : ""
-          }`}
-          style={{
-            position: "fixed",
-            top: "70%",
-            left: "45%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 1000,
-          }}
-        >
-          <button style={{ background: "transparent", color: "green" }}>
-            <h1>
-              <span>PLAY</span>
-            </h1>
-          </button>
-        </div>
-      )}
-      <div ref={scrollRef}></div>
-      <div style={{position:"fixed", bottom: "20px", left: "30px", zIndex: 300}} > <Volume /> </div>
-    </div>
-
-
-  );
+      </div>
+      <div className="body-mobile">
+        <Mobile />
+      </div>
+    </>
+  )
 }
+
+export default App
