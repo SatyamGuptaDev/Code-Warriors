@@ -78,7 +78,7 @@ export default function Home() {
   return (
 
 
-    <div>
+    <div className="home-body">
 
       <Plx
         parallaxData={[
@@ -104,7 +104,7 @@ export default function Home() {
           // filter: "brightness(400%)"
         }}
       >
-        <nav className="home-nav" style={{paddingTop:"-20px", display: "flex",height: "32px", paddingBottom: "5px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white"}}>
+        <nav className="home-nav" style={{paddingTop:"-24px", display: "flex",height: "40px", paddingBottom: "5px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white"}}>
           <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
           <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
           <a style={{textDecoration: "none", color:"white"}} >Project</a>
@@ -173,7 +173,7 @@ export default function Home() {
           style={{
             width: "100%"
           }}
-          src="/background-01.jpg"
+          src="/background-01.jpeg"
         />
        
       </Plx>
@@ -200,13 +200,18 @@ export default function Home() {
         ]}
         style={{
           position: "fixed",
-          left: 0,
-          top: "30vw",
-          width: "100%",
-          zIndex: 10
+          left: '0',
+          bottom: "15vh",
+          width: "100vw",
+          zIndex: 10,
+          height: "150px",
+          display: "flex",
+          flexDirection: "width",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-          <div style={{width: "100%", height: '100px', display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}> 
+          <div className="logo-name" style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}> 
 
           <Plx
             parallaxData={[
@@ -225,7 +230,7 @@ export default function Home() {
             style={{ 
             }}
           >
-            <img style={{ height: '65px'}} src="code.png" alt="background" />  
+            <img style={{ height: '65px'}} src="code.png" />  
 
           </Plx>
           
@@ -251,7 +256,7 @@ export default function Home() {
             }}
             >
 
-              <img style={{ height: '70px' }} src="warriors.png" alt="background" />
+              <img style={{ height: '70px' }} src="warriors.png" />
           </Plx>
           </div>
       </Plx>
@@ -314,7 +319,7 @@ export default function Home() {
           style={{
             width: "100%"
           }}
-          src="/background.jpg"
+          src="/background.jpeg"
         />
       </Plx>
 
@@ -334,7 +339,7 @@ export default function Home() {
           }`}
           style={{
             position: "fixed",
-            bottom: "10px", // Adjust the bottom position
+            bottom: "10px",
             left: "50%",
             transform: "translateX(-50%)",
             zIndex: 1000,
@@ -363,8 +368,8 @@ export default function Home() {
             zIndex: 1000,
           }}
         >
-          <button style={{ background: "transparent", color: "green" }}>
-            <h1>
+          <button className="play-btn-home" style={{ background: "transparent", color: "green" }}>
+            <h1 className="play-btn-h1">
               <span>PLAY</span>
             </h1>
           </button>
