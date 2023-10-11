@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import './App.css'
-import Home from './Pages/Home';
+import Home from './page/Home';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import About from './Pages/About';
+import About from './page/About';
 import ScrollToTop from './components/ScrollToTop';
-import { useEffect } from 'react';
 
 function App() {
 

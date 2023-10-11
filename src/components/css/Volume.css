@@ -1,0 +1,78 @@
+/* Define variables */
+:root {
+    --color: #ffffff;
+    --size: 50px;
+    --border: calc(var(--size) / 25);
+    --icon-size: 75%; /* Adjust the size of the sound icon here */
+  }
+  
+  /* .sound container */
+  .sound {
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  /* .sound--icon */
+  .sound--icon {
+    color: white;
+    width: 100%; /* Make the icon container the same size as the sound container */
+    height: 100%; /* Make the icon container the same size as the sound container */
+    line-height: 100%;
+    font-size: var(--icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* .sound--wave */
+  .sound--wave {
+    position: absolute;
+    border: var(--border) solid transparent;
+    border-right: var(--border) solid var(--color);
+    border-radius: 50%;
+    transition: all 200ms;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* .sound--wave_one */
+  .sound--wave_one {
+    width: 50%;
+    height: 50%;
+  }
+  
+  /* .sound--wave_two */
+  .sound--wave_two {
+    width: 75%;
+    height: 75%;
+  }
+  
+  /* .sound-mute .sound--wave */
+  .sound-mute .sound--wave {
+    border-radius: 0;
+    width: 50%;
+    height: 50%;
+    border-width: 0 var(--border) 0 0;
+  }
+  
+  /* .sound-mute .sound--wave_one */
+  .sound-mute .sound--wave_one {
+    transform: rotate(45deg) translate3d(0, -50%, 0);
+  }
+  
+  /* .sound-mute .sound--wave_two */
+  .sound-mute .sound--wave_two {
+    transform: rotate(-45deg) translate3d(0, 50%, 0);
+  }
+  
+  /* Misc styles */
+  body {
+    margin: 20px;
+  }
+  

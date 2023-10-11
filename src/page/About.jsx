@@ -34,29 +34,28 @@ function About() {
             
         <div className='body-about '>
 
-            <nav className="home-nav-about" data-aos="fade-in" data-aos-delay="1000">
+        <nav className="home-nav-about" data-aos="fade-down" data-aos-delay="100">
 
-                <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
-                <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
-                <a style={{textDecoration: "none", color:"white"}} >Project</a>
-                <a style={{textDecoration: "none", color:"white"}} >Developers</a>
-            </nav>
-
+          <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
+          <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
+          <a style={{textDecoration: "none", color:"white"}} >Project</a>
+          <a style={{textDecoration: "none", color:"white"}} >Developers</a>
+        </nav>
             <div className="about-container  ">
           
             {/* bg-gradient-to-b from-gray-900 to-gray-600 */}
                 <div className="logo-div text-4xl font-bold">
                     <div className='logo-name-about'>
-                        <h2 className=' text-center-name about-title-name bg-clip-text  text-transparent' style={{ backgroundImage: 'conic-gradient(rgb(243, 244, 246), rgb(253, 186, 116), rgb(240, 171, 252))' }} data-aos="fade-in"> GeoWellAdvisor</h2>
+                        <h2 className=' text-center-name about-title-name bg-clip-text  text-transparent' style={{ backgroundImage: 'conic-gradient(rgb(243, 244, 246), rgb(253, 186, 116), rgb(240, 171, 252))' }} data-aos-delay="1500" data-aos="fade-in"> CODE WARRIORS</h2>
                     </div>
                     <div className='ai-div'>
 
-                    <p className="description-about text-white dark:text-white" data-aos="fade-in" data-aos-delay="1000">GeoWellAdvisor: Your go-to tool for smart water well decisions. Predict well suitability, depth, discharge, and more, all with a user-friendly interface powered by AI and CGWB data.</p>
-                    <p className='description-about da-2 font-semibold text-white dark:text-white' data-aos="fade-in" data-aos-delay="1000">Join us in shaping a sustainable water future.</p>
+                    <p className="description-about text-white dark:text-white" data-aos="fade-in" data-aos-delay="1500" >Welcome to Code Warriors - Your Gateway to Learning Code Through Games and Challenges</p>
+                    {/* <p className='description-about da-2 font-semibold text-white dark:text-white' data-aos="fade-in" data-aos-delay="1500">Join us in shaping a sustainable water future.</p> */}
                     </div>
                 </div>
 
-                <img className='about-front-img' data-aos="fade-left" data-aos-delay="1000" src={img1} alt="GeoWell Advisor"/>
+                <img className='about-front-img' data-aos="fade-left" data-aos-delay="1500" src={img1} alt="GeoWell Advisor"/>
 
             </div>
             <div className="features-container">

@@ -54,26 +54,27 @@ export default function Home() {
     const initialY = window.scrollY;
     const distance = Math.abs(targetY - initialY);
     const duration = 5000; // Adjust the duration (in milliseconds) for slower or faster scrolling
-
+  
     let start;
-
+  
     const step = (timestamp) => {
       if (!start) start = timestamp;
-
+  
       const time = timestamp - start;
       const percent = Math.min(time / duration, 1);
-
-      window.scrollTo(0, initialY + percent * (targetY - initialY));
-
+  
+      window.scrollTo(0, targetY - percent * (targetY - initialY));
+  
       if (time < duration) {
         requestAnimationFrame(step);
       }
     };
-
+  
     requestAnimationFrame(step);
   };
-
-
+  
+  
+  
 
   return (
 
@@ -125,8 +126,13 @@ export default function Home() {
             properties: [
               {
                 startValue: 1,
-                endValue: 1.6,
+                endValue: 2,
                 property: "scale"
+              },
+              {
+                startValue: 1,
+                endValue: 0.5,
+                property: "brightness"
               }
             ]
           }
@@ -211,7 +217,7 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-          <div className="logo-name" style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}> 
+          <div className="logo-name" style={{ transform: 'translateX(10px)', display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}> 
 
           <Plx
             parallaxData={[

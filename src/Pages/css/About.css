@@ -15,17 +15,20 @@
   
   .home-nav-about{
     width: 50vw;
-    padding: 2px;
+    height: 40px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 0 auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: fixed;
+    top: -5;
 
 
   
-    background: rgba(139, 189, 255, 0.47);
+    background: rgba(178, 202, 232, 0.265);
     border-radius: 0px 0px 15px 15px;
-      box-shadow: 5px 4px 30px rgba(227, 217, 217, 0.457);
+      box-shadow: 5px 4px 30px rgba(227, 217, 217, 0.662);
       backdrop-filter: blur(1px) brightness(1.1);
       -webkit-backdrop-filter: blur(1px);
       border: 2px solid rgba(255, 255, 255, 0.3);
@@ -59,7 +62,7 @@
         
         backdrop-filter: blur(13px);
         -webkit-backdrop-filter: blur(13px) ;
-        background-color: rgba(2, 1, 31, 0.776);
+        background-color: rgb(2, 1, 31);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
