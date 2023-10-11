@@ -6,12 +6,41 @@
   scroll-behavior: smooth;
 }
 
+#cursor {
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3000;
+}
+
+#cursor-border {
+  --size: 50px;
+  position: fixed;
+  top: calc(var(--size) / -2);
+  left: calc(var(--size) / -2);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px white;
+  pointer-events: none;
+  transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out,
+    height 0.15s ease-out, background-color 0.15s ease-out;
+  z-index: 3000;
+}
+
+
 .home-body {
     font-family: Arial Black, sans-serif;
     text-align: center;
     background: rgb(1, 11, 8);
     height: 200vh;
     overscroll-behavior: none;
+    cursor: none;
   
   }
   @keyframes bounce {
@@ -32,6 +61,26 @@
       transform: translateY(-5px);
     }
   }
+
+
+
+.home-body {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
   .scroll-down-container {
     display: flex;
     align-items: center;
@@ -122,7 +171,7 @@
   }
    
   html::-webkit-scrollbar-track {
-    background: rgb(72, 71, 71);
+    background: rgb(0, 0, 0);
     box-shadow: inset 0 0 6px rgb(0, 0, 0);
 
   }
@@ -130,7 +179,16 @@
   html::-webkit-scrollbar-thumb {
     background: rgb(108, 108, 108);
     border: 3px solid rgb(0, 0, 0);
-    border-radius: 10px;
+
+  }
+
+  .home-body {
+    font-family: Arial Black, sans-serif;
+    text-align: center;
+    background: rgb(1, 11, 8);
+    height: 200vh;
+    overscroll-behavior: none;
+  
   }
   
   
@@ -141,6 +199,12 @@
     line-height: 1.1;
   }
   
+  .play-btn-home:hover{
+    scale: 0.9;
+
+  }
+
+
   .play-btn-home {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -148,6 +212,8 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+
   }
   

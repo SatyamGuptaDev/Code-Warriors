@@ -1,5 +1,5 @@
 import "./css/Home.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
@@ -8,12 +8,17 @@ import Volume from "../components/Volume";
 
 
 
-
 const Home = () => {
+
+
+
+
+
   const [showScrollText, setShowScrollText] = useState(true);
   const [showPlayButton, setShowPlayButton] = useState(false);
   const [showPressEnter, setShowPressEnter] = useState(false);
   const [pressedEnter, setPressedEnter] = useState(false);
+  const playButtonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +62,98 @@ const Home = () => {
 
 
 
+  const handleMouseOver = (item) => {
+    const cursorBorder = document.querySelector("#cursor-border");
+
+    if (item.dataset.cursor === "pointer") {
+      cursorBorder.style.backgroundColor = "rgba(255, 255, 255, .6)";
+      cursorBorder.style.setProperty("--size", "30px");
+    }
+    if (item.dataset.cursor === "pointer2") {
+      cursorBorder.style.backgroundColor = "white";
+      cursorBorder.style.mixBlendMode = "difference";
+      cursorBorder.style.setProperty("--size", "80px");
+    }
+  };
+
+  const handleMouseOut = () => {
+    const cursorBorder = document.querySelector("#cursor-border");
+    cursorBorder.style.backgroundColor = "unset";
+    cursorBorder.style.mixBlendMode = "unset";
+    cursorBorder.style.setProperty("--size", "50px");
+  };
+
+  useEffect(() => {
+    const items = document.querySelectorAll("[data-cursor]");
+    items.forEach(item => {
+      item.addEventListener("mouseover", () => handleMouseOver(item));
+      item.addEventListener("mouseout", handleMouseOut);
+    });
+
+    return () => {
+      items.forEach(item => {
+        item.removeEventListener("mouseover", () => handleMouseOver(item));
+        item.removeEventListener("mouseout", handleMouseOut);
+      });
+    };
+  }, []);
+
+
   
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [cursorBorderPos, setCursorBorderPos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const cursor = document.querySelector("#cursor");
+    const cursorBorder = document.querySelector("#cursor-border");
+
+    document.addEventListener("mousemove", (e) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+
+    const easting = 8;
+    function loop() {
+      setCursorBorderPos(prevPos => ({
+        x: prevPos.x + (cursorPos.x - prevPos.x) / easting,
+        y: prevPos.y + (cursorPos.y - prevPos.y) / easting
+      }));
+      cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+
+  }, [cursorPos, cursorBorderPos]);
+
+
+
+  // const animateCircle = () => {
+  //   //when user clicks the play button then the cursor will animate and become a circle bigger and bigger and then cover the whole screen with its white color for the time until the project page loads, the animation of the circle becoming bigger will be for 4 seconds and then the /project page will load
+
+    
+  // }
+
+
+    const animateCircle = () => {
+      // Get references to the cursor and cursor border elements
+      const cursor = document.getElementById("cursor");
+      const cursorBorder = document.getElementById("cursor-border");
+
+      // Add CSS styles to animate the cursor
+      cursor.style.transition = "transform 3s ease-in, background-color 3s ease-out";
+      cursor.style.transform = "scale(10000)";
+      cursor.style.backgroundColor = "#374635";
+
+      // Simulate a delay for 4 seconds before loading the project page
+      setTimeout(() => {
+        // Replace this with the actual URL of the project page
+        window.location.href = "/project";
+      }, 4000);
+    };
+    
+  
+  
+
 
 
 
@@ -65,7 +161,9 @@ const Home = () => {
 
 
         <div className="home-body">
-    
+                <div id="cursor"></div>
+                <div id="cursor-border"></div>
+              
           <Plx
             parallaxData={[
               {
@@ -90,7 +188,7 @@ const Home = () => {
               // filter: "brightness(400%)"
             }}
           >
-            <nav className="home-nav" style={{paddingTop:"-24px", display: "flex",height: "43px", paddingBottom: "7px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white",    borderTop: 0}}>
+            <nav dataCursor='pointer' className="home-nav" style={{paddingTop:"-24px", display: "flex",height: "43px", paddingBottom: "7px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white",    borderTop: 0}}>
               <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
               <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
               <a style={{textDecoration: "none", color:"white"}} >Project</a>
@@ -359,7 +457,7 @@ const Home = () => {
                 zIndex: 1000,
               }}
             >
-              <button className="play-btn-home" style={{ background: "transparent", color: "green" }}>
+              <button className="play-btn-home" ref={playButtonRef} id="play-btn-home" dataCursor='pointer2' style={{ cursor: 'none', background: "transparent", color: "green" }} onClick={animateCircle}>
                 <h1 className="play-btn-h1">
                   <span>PLAY</span>
                 </h1>
@@ -368,6 +466,7 @@ const Home = () => {
           )}
 
           <div style={{position:"fixed", bottom: "20px", left: "30px", zIndex: 300}} > <Volume url={'intro.mp3'} audioElementId={1} /> </div>
+
         </div>
     
     
