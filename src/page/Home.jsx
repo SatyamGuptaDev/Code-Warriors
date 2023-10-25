@@ -138,17 +138,20 @@ const Home = () => {
       // Get references to the cursor and cursor border elements
       const cursor = document.getElementById("cursor");
       const cursorBorder = document.getElementById("cursor-border");
+      const PlayBTN = document.getElementById("play-btn-home");
 
       // Add CSS styles to animate the cursor
-      cursor.style.transition = "transform 3s ease-in, background-color 3s ease-out";
+      PlayBTN.style.display = "none";
+      cursor.style.visibility = "visible";
+      cursor.style.transition = "transform 3s ease-in, background 1s ease-out";
       cursor.style.transform = "scale(10000)";
-      cursor.style.backgroundColor = "#374635";
+      cursor.style.background = "black";
 
       // Simulate a delay for 4 seconds before loading the project page
       setTimeout(() => {
         // Replace this with the actual URL of the project page
         window.location.href = "/project";
-      }, 4000);
+      }, 1000);
     };
     
   
@@ -162,7 +165,7 @@ const Home = () => {
 
         <div className="home-body">
                 <div id="cursor"></div>
-                <div id="cursor-border"></div>
+
               
           <Plx
             parallaxData={[
@@ -457,7 +460,7 @@ const Home = () => {
                 zIndex: 1000,
               }}
             >
-              <button className="play-btn-home" ref={playButtonRef} id="play-btn-home" dataCursor='pointer2' style={{ cursor: 'none', background: "transparent", color: "green" }} onClick={animateCircle}>
+              <button className="play-btn-home" ref={playButtonRef} id="play-btn-home" dataCursor='pointer2' style={{ background: "transparent", color: "green" }} onClick={animateCircle}>
                 <h1 className="play-btn-h1">
                   <span>PLAY</span>
                 </h1>
@@ -465,8 +468,8 @@ const Home = () => {
             </div>
           )}
 
-          <div style={{position:"fixed", bottom: "20px", left: "30px", zIndex: 300}} > <Volume url={'intro.mp3'} audioElementId={1} /> </div>
-
+          <div style={{position:"fixed", bottom: "20px", left: "30px", zIndex: 300}} > <Volume url={'intro.mp3'} /> </div>
+          
         </div>
     
     

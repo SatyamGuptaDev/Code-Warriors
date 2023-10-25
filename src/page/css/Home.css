@@ -10,12 +10,13 @@
   position: fixed;
   top: -5px;
   left: -5px;
-  width: 10px;
-  height: 10px;
-  background-color: white;
+  width: 5px;
+  height: 5px;
+  background: white;
   border-radius: 50%;
   pointer-events: none;
   z-index: 3000;
+  visibility: hidden;
 }
 
 #cursor-border {
@@ -40,7 +41,7 @@
     background: rgb(1, 11, 8);
     height: 200vh;
     overscroll-behavior: none;
-    cursor: none;
+
   
   }
   @keyframes bounce {

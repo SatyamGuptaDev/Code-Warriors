@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './css/Volume.css';
 
-function Volume({ url, audioElementId }) {
-  const [isMuted, setIsMuted] = useState(true);
+function Volume({ url }) {
+  const [isMuted, setIsMuted] = useState(false);
 
   const audioRef = useRef(null);
 
@@ -10,9 +10,10 @@ function Volume({ url, audioElementId }) {
     const audioElement = audioRef.current;
 
     if (isMuted) {
-      audioElement.pause();
-    } else {
-      audioElement.play();
+      audioElement.volume = 0;
+    }
+    else {
+      audioElement.volume = 1;
     }
   }, [isMuted]);
 
@@ -29,7 +30,7 @@ function Volume({ url, audioElementId }) {
       </div>
       <div className="sound--wave sound--wave_one"></div>
       <div className="sound--wave sound--wave_two"></div>
-      <audio ref={audioRef} id={audioElementId} loop muted>
+      <audio ref={audioRef} loop autoPlay>
         <source src={url} type="audio/mpeg" />
       </audio>
     </div>

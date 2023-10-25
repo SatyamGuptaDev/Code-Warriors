@@ -38,8 +38,8 @@ function About() {
 
           <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
           <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
-          <a style={{textDecoration: "none", color:"white"}} >Project</a>
-          <a style={{textDecoration: "none", color:"white"}} >Developers</a>
+            <NavLink to='/project' style={{textDecoration: "none", color:"white"}}>Project</NavLink>
+            <NavLink to='/team' style={{textDecoration: "none", color:"white"}}>Team</NavLink>
         </nav>
             <div className="about-container  ">
           
@@ -68,93 +68,105 @@ function About() {
                                 Discover Our Unique Features
                             </h1>
                             <p className="max-w-[600px] text-zinc-200 md:text-xl dark:text-zinc-100 mx-auto"  data-aos="zoom-out" data-aos-delay="500">
-                                Our features are designed to enhance your decision making by providing you accurate data.
+                                Our features are designed to enhance your programming knowledge and skills.
                             </p>
                             </div>
                             <div className="w-full max-w-full space-y-4 mx-auto">
                             <div className="grid grid-cols-3 gap-8">
                                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg" data-aos="zoom-out" data-aos-delay="1100">
                                 <div className="p-2 bg-black bg-opacity-50 rounded-full">
-                                <img src={icon1} alt="" height='28' width='28' />
+                                <svg
+                                    className="h-6 w-6 text-white mb-2 opacity-75"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                    />
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l-1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l-1.42-1.42"
+                                    />
+                                </svg>
                                 </div>
-                                <h2 className="text-xl font-bold text-white">Suitability Analysis</h2>
+                                <h2 className="text-xl font-bold text-white">Interactive Learning Modules</h2>
                                 <p className="text-zinc-200 dark:text-zinc-100">
-                                    Discover the most suitable locations for water well placement.
+                                Breakdown programming into easy-to-learn modules.
+
+
                                 </p>
                                 </div>
                                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg" data-aos="zoom-out" data-aos-delay="1200">
                                 <div className="p-2 bg-black bg-opacity-50 rounded-full">
-                                    <svg
-                                    className=" text-white h-6 w-6 mb-2 opacity-75"
-                                    fill="none"
-                                    height="24"
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    width="24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
-                                    <circle cx="12" cy="12" r="3" />
-                                    </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white mb-2 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l3 3m-6 0l-3 3m3-3v6m4.5-9a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 0h0" />
+                                </svg>
+
+
                                 </div>
-                                <h2 className="text-xl font-bold text-white">Drilling Techniques</h2>
+                                <h2 className="text-xl font-bold text-white">Guided Tutorials</h2>
                                 <p className="text-zinc-200 dark:text-zinc-100">
-                                     Learn the best drilling methods for optimized water extraction.
+                                Begin with guided, beginner-friendly tutorials.
+
+
                                 </p>
                                 </div>
                                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg" data-aos="zoom-out" data-aos-delay="1300">
                                 <div className="p-2 bg-black bg-opacity-50 rounded-full">
-                                <img src={icon3} alt="" height='28' width='28' />
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white mb-2 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                                
+                                
                                 
 
                                 </div>
-                                <h2 className="text-xl font-bold text-white">Depth Prediction</h2>
+                                <h2 className="text-xl font-bold text-white">Challenge Your Skills</h2>
                                 <p className="text-zinc-200 dark:text-zinc-100">
-                                    Uncover the ideal depth for your water well based on location data.
+                                Test yourself with quizzes and coding exercises.
                                 </p>
                                 </div>
                                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg" data-aos="zoom-out" data-aos-delay="1400">
                                 <div className="p-2 bg-black bg-opacity-50 rounded-full">
-                                    <svg
-                                    className=" text-white h-6 w-6 mb-2 opacity-75"
-                                    fill="none"
-                                    height="24"
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    width="24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                    <circle cx="11" cy="11" r="8" />
-                                    <path d="m21 21-4.3-4.3" />
-                                    </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white mb-2 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21.5 12a9.5 9.5 0 11-19 0 9.5 9.5 0 0119 0zm-9.5 6v-4l-6 3v-4l6-3v-4l-6 3-6-3v4l6 3v4l-6-3v4l6 3z" />
+                                </svg>
                                 </div>
-                                <h2 className="text-xl font-bold text-white">Discharge Estimation</h2>
+                                <h2 className="text-xl font-bold text-white">Gamified Learning Experience</h2>
                                 <p className="text-zinc-200 dark:text-zinc-100">
-                                     Maximize the water discharge rate using our sophisticated AI models.
+                                Earn points and compete in a fun, gamified environment.
+
+
                                 </p>
                                 </div>
                                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg" data-aos="zoom-out" data-aos-delay="1500">
                                 <div className="p-2 bg-black bg-opacity-50 rounded-full">
-                                <img src={icon4} alt="" height='28' width='28' />
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white mb-2 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l3 3m-6 0l-3 3m3-3v6m4.5-9a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 0h0" />
+                                </svg>
+                                    
                                 </div>
-                                <h2 className="text-xl font-bold text-white">Groundwater Quality</h2>
+                                <h2 className="text-xl font-bold text-white">Multi-Level Mastery</h2>
                                 <p className="text-zinc-200 dark:text-zinc-100">
-                                    Obtain vital information about the groundwater quality in your area.
+                                Progress through topics with beginner, intermediate, and advanced levels.
+
+
                                 </p>
                                 </div>
                                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg" data-aos="zoom-out" data-aos-delay="1600">
                                 <div className="p-2 bg-black bg-opacity-50 rounded-full">
                                 <img src={icon2} alt="" height='28' width='28' />
                                 </div>
-                                <h2 className="text-xl font-bold text-white">User-Friendly Interface</h2>
+                                <h2 className="text-xl font-bold text-white">Track Your Progress</h2>
                                 <p className="text-zinc-200 dark:text-zinc-100">
-                                    Enjoy a seamless experience with our intuitive and interactive platform.
+                                Monitor your coding journey and see how you're advancing through our structured learning platform.
                                 </p>
                                 </div>
                             </div>
@@ -169,8 +181,8 @@ function About() {
                 <div className='photo-para'>
 
                     <div className='text' data-aos="fade-right">
-                        <h1>Transform Water Well Decisions</h1>
-                        <p>Harness the power of CGWB's NAQUIM data and revolutionize your approach to water well decisions. GeoWellAdvisor's AI-driven platform is specifically designed for India's unique groundwater landscape.</p>
+                        <h1>Empower Your Coding Odyssey</h1>
+                        <p>Turn coding into an adventure with "CODE WARRIORS." Conquer modules, topics, and levels, and become a coding hero. Redefine your learning experience one level at a time.</p>
                     </div>
 
                     <img className='image' data-aos="fade-left" data-aos-delay="200" src={img2} alt="Transfrom Watrer Well Decisions" />
@@ -178,9 +190,9 @@ function About() {
                     <img className='image' data-aos="fade-right" data-aos-delay="200" src={img3} alt="Dynamic Platform, Structured Feedback" />
                     <div className='text' data-aos="fade-left">
                         <h1 className=''>
-                            Dynamic Platform, Structured Feedback
+                        Join the Code Warriors Community
                         </h1>
-                        <p>GeoWellAdvisor prioritizes user satisfaction, offering a dynamic and responsive platform for all your water well needs. We actively encourage structured feedback to continually improve our service.</p>
+                        <p>Elevate your coding skills with "CODE WARRIORS." Join our vibrant community, conquer levels, and unlock your full programming potential with engaging 2D game-style challenges.</p>
                     </div>
 
                 </div>
