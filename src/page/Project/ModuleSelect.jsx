@@ -8,9 +8,9 @@ import AOS from "aos";
 function ModuleSelect() {
     const [mdLevel, setMdLevel] = useState({
         md1: true,
-        md2: false,
+        md2: true,
         md3: false,
-        md4: false
+        md4: false,
     })
 
     useEffect(() => {
