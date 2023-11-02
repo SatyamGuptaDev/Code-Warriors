@@ -1,6 +1,6 @@
 
 import React, { useRef, useEffect } from 'react';
-import './slider.css'; 
+import './Slider.css'; 
 import myimage from './assets/images/img.jpeg';
 import myimage2 from './assets/images/img2.jpeg';
 import myimage3 from './assets/images/img3.jpeg';
