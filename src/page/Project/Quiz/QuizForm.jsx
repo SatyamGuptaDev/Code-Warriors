@@ -15,6 +15,8 @@ function Form({
   setTotalPoints
 
 }) {
+
+
   const [selectedOptions, setSelectedOptions] = useState(
     Array(quiz.questions.length).fill([])
   );
@@ -146,7 +148,7 @@ useEffect(() => {
       // Treat no option selected as incorrect
       setPoints((prevPoints) => {
         const newPoints = [...prevPoints];
-        newPoints[currentQuestion] = -2; // -2 for incorrect
+        newPoints[currentQuestion] = 0;
         return newPoints;
       });
     } else if (selectedOptions[currentQuestion][0] === answer[0]) {
@@ -167,7 +169,7 @@ useEffect(() => {
       // Treat no option selected as incorrect
       setPoints((prevPoints) => {
         const newPoints = [...prevPoints];
-        newPoints[currentQuestion] = -2; // -2 for incorrect
+        newPoints[currentQuestion] = 0; 
         return newPoints;
       });
     } else {
@@ -193,6 +195,8 @@ useEffect(() => {
     }
   }
 }, [selectedOptions]);
+
+
 
 
 

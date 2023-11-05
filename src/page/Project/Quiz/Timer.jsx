@@ -21,7 +21,7 @@ function Timer({ initialSeconds, onTimeout }) {
   return (
     <div className="timer">
       <p className="timer__text" style={{whiteSpace: 'nowrap'}}>Remaining time: </p>
-      <span className="timer__seconds">{remainingSeconds}</span>
+      <span className="timer__seconds">{remainingSeconds} Sec</span>
     </div>
   );
 }

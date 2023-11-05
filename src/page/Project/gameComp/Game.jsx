@@ -26,13 +26,8 @@ function Try() {
 
 
 
-   const [gameStarted, setGameStarted] = useState(false);
-   function startGame() {
-     setGameStarted(true);
-   }
-
    useEffect(() => {
-        if (quizEnded == true) {
+        if (quizEnded) {
             // find how many points the player got are grater than one
             let count = 0;
             for (let i = 0; i < points.length; i++) {
@@ -40,11 +35,14 @@ function Try() {
                     count++;
                 }
             }
-            setNumofCorrect(()=> count);
-            console.log('correct', numofCorrect);
-
+            setNumofCorrect(() => count);
         }
     }, [quizEnded]);
+    
+
+    console.log('numofCorrect', numofCorrect);
+    console.log('points', points);
+    
 
 
 
@@ -127,7 +125,7 @@ useEffect(() => {
 
 
       <div id="quiz-div" style={{  boxShadow:' 0px 0px 30px rgb(0, 0, 0)'}} data-aos='slide-left' data-aos-duration='1000' data-aos-delay='500'  >
-        <QuizContainer quiz={data} initialSeconds={40} setPoints={setPoints} points={points} setquizEnded={setQuizEnded} />
+        <QuizContainer quiz={data} initialSeconds={120} setPoints={setPoints} points={points} setquizEnded={setQuizEnded} />
       </div>
 
 

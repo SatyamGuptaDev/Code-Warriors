@@ -28,7 +28,6 @@ function QuizContainer({
 
   useEffect(() => {
     if(quizEnded == true){
-      console.log('points', points);
       setquizEnded(true);
     }
   }, [quizEnded]);
@@ -112,22 +111,22 @@ function QuizContainer({
               </div>
               <div className='buttons'>
                 {currentQuestion > 0 && !quizEnded && (
-                  <button className='bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={handlePrev}>
+                  <button className='button-1  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={handlePrev}>
                     Prev
                   </button>
                 )}
                 {currentQuestion < quiz.questions.length - 1 && !quizEnded && (
-                  <button className='bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded ' onClick={handleNext}>
+                  <button className='button-1  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded ' onClick={handleNext}>
                     Next
                   </button>
                 )}
                 {currentQuestion === quiz.questions.length - 1 && !quizEnded && (
-                  <button className='bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={onsubmit}>
+                  <button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-4 px-4 rounded' style={{width: '150px', height: '60px'}} onClick={onsubmit}>
                     Submit
                   </button>
                 )}
                 {quizEnded && (
-                  <button className='bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => { }}>
+                  <button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => { }}>
                     Exit
                   </button>
                 )}
@@ -144,7 +143,7 @@ function QuizContainer({
                 <h3 className='text-3xl text-left '><p className='text-2xl text-left inline-block'> Questions: </p> {quiz.questions.length} </h3>
                 <h3 className='text-3xl text-left '><p className='text-2xl text-left inline-block'> Points you can score: </p> {setTotalPoints()} </h3>
               </div>
-              <div className='text-3xl'>
+              <div className='text-3xl' >
                 <button onClick={handleStarter} className='button-29 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' role='button'>START</button>
               </div>
               <div className=' points-rule text-left'>
