@@ -5,7 +5,7 @@ import myimage from './assets/images/img.jpeg';
 import myimage2 from './assets/images/img2.jpeg';
 import myimage3 from './assets/images/img3.jpeg';
 import myimage4 from './assets/images/img4.jpeg';
-import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 
 function Slider({infoArray}) {
@@ -15,6 +15,7 @@ function Slider({infoArray}) {
   const handleNextClick = () => {
     const items = document.querySelectorAll('.item');
     document.querySelector('.slide').appendChild(items[0]);
+
   };
 
   const handlePrevClick = () => {
@@ -68,6 +69,7 @@ function Slider({infoArray}) {
       return (
         // <div key={index} className="item" style={{ backgroundColor: "#252424b4", border: '1px solid #fff', display: 'flex', justifyContent: 'center', alignItems: 'center', filter: 'blur(0px)' }}>
         <div key={index} className="item" style={{backgroundImage: `url(${item})` }}>
+            <p className="heading"> Next Topics :</p>
            <div className="content" style={{ border: '1px solid #fff ' }}>
                 <div className="name">{infoArray[index].name}</div>
                 <div className="des">{infoArray[index].des}</div>
@@ -94,10 +96,11 @@ function Slider({infoArray}) {
     } else {
       return (
         <div key={index} className="item" style={{ backgroundImage: `url(${item})` }}>
+          <p className="heading"> Next Topics: </p> 
           <div className="content">
             <div className="name">{infoArray[index].name}</div>
             <div className="des">{infoArray[index].des}</div>
-            <button style={{}}>Learn More</button>
+            <Link to='/project/js/try' ><button style={{}}>Learn More</button></Link>
           </div>
         </div>
       );
@@ -105,7 +108,6 @@ function Slider({infoArray}) {
   })}
 </div>
 
-      
       <div className='button-nextperev'>
         <button className="prev" ref={prevRef} onClick={handlePrevClick}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-left" width="40" height="35" viewBox="0 0 24 24" strokeWidth="1.5" stroke="black" fill="none" strokeLinecap="round" strokeLinejoin="round">

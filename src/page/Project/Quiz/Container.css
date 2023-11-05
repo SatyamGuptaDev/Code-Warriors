@@ -1,0 +1,218 @@
+
+.quiz-body {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  user-select: none;
+}
+
+.quiz-body .fade-out{
+  animation: hide 0.5s ease-in-out forwards ;
+}
+
+.quiz-body .max-width{
+  position: relative;
+  box-shadow: 0px 0px 20px rgb(0, 0, 0);
+  width: 90%;
+  height: 90%;
+  background-color: rgba(84, 84, 84, 0.555);
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quiz-body .max-width .starter{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  width: 80%;
+  height: 90%;
+  transition: all 0.5s ;
+  opacity: 1;
+}
+
+.quiz-body .max-width .starter .points-rule{
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.points-rule h2{
+  align-self:center ;
+  font-size: 25px;
+  font-weight: 900;
+  
+}
+
+
+.quiz-body .max-width .quizz-container{
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  transition: all 0.2s ;
+  opacity: 1;
+  animation: show 0.5s ease-in-out ;
+}
+
+.quiz-body .max-width .quizz-container .form{
+  position: relative;
+  width: 100%;
+  max-height: 90%;
+  transition: all 0.2s ;
+  opacity: 1;
+}
+
+.quiz-body .max-width .quizz-container .buttons{
+  position: relative;
+  justify-self: flex-end;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  z-index: 100;
+}
+
+
+
+
+
+.quizz-container .quizz-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly between the children */
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  transition: all 0.2s;
+  opacity: 1;
+  font-size: 15px;
+  color: #d3d3d3;
+  margin-bottom: 10px;
+}
+
+.quizz-container .quizz-header span{
+  font-size: 20px;
+  color: white;
+}
+
+.quizz-container .quizz-header .question-count{
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+
+}
+.quizz-container .quizz-header .timer{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  transition: all 0.2s;
+  opacity: 1;
+}
+
+
+.quizz-container .quizz-header .difficulty{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  transition: all 0.2s;
+  opacity: 1;
+}
+
+
+
+@keyframes hide {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes show {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+/* start button ui */
+
+/* CSS */
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 23px;
+}
+
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}

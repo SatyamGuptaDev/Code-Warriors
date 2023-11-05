@@ -36,6 +36,14 @@ function LanguageSelect() {
                     </div>     
                 </NavLink>
             </div>
+            {/* {
+                setTimeout(() => {
+                    document.getElementById('minion').style.display = 'block';
+                    document.getElementById('minion').style.animation = 'minion 2s ease-in-out 1';
+
+                }, 2000)
+            } */}
+            <img id='minion' src='namaste_minion.png'  />
         </div>
     )
 }

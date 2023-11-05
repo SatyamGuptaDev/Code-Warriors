@@ -1,20 +1,28 @@
 import React from 'react';
 import { useRef,useEffect,useState } from 'react';
 import {Helmet} from "react-helmet";
+import AOS from 'aos';
+import QuizContainer from '../Quiz/Container';
+
 
 import bluebirdPiano from './assets/sounds/bluebird_piano.mp3' ;
 import whoosh from './assets/sounds/whoosh.wav';
 import tie from './assets/sounds/tie.mp3';
 import gameOver from './assets/sounds/game_over.mp3';
 import emotionalDamage from './assets/sounds/emotional_damage.mp3';
+import data from '../Quiz/quiz.json' 
 
-import './css/style.css';
+import  './css/style.css';
 
 
 function Try() {
 
 
    const canvasRef = useRef(null);
+   const [numofCorrect, setNumofCorrect] = useState(0);
+   const numOfquestions = data.questions.length;
+   const [points, setPoints] = useState(Array(numOfquestions).fill(0));
+   const [quizEnded, setQuizEnded] = useState(false);
 
 
 
@@ -22,6 +30,21 @@ function Try() {
    function startGame() {
      setGameStarted(true);
    }
+
+   useEffect(() => {
+        if (quizEnded == true) {
+            // find how many points the player got are grater than one
+            let count = 0;
+            for (let i = 0; i < points.length; i++) {
+                if (points[i] > 0) {
+                    count++;
+                }
+            }
+            setNumofCorrect(()=> count);
+            console.log('correct', numofCorrect);
+
+        }
+    }, [quizEnded]);
 
 
 
@@ -71,25 +94,22 @@ useEffect(() => {
 
 
 
-//   function handleSubmission(event) {
-//     event.preventDefault();
-//     const attackInput = document.getElementById('attackInput').value;
-//     if (attackInput === 'hello world') {
-//       player.velocity.x = 140;
-//       player.attack();
-//     } else {
-//       enemy.attack();
-//     }
-  
-//   }
 
+useEffect(() => {
+    AOS.init({
+        duration: 500,
+        once: true,
+        easing: "ease-in-out",
+    });
+    AOS.refresh();
+  }, []);
 
 
   return (
 
     
     <>
-    <div id='game-body' >
+    <div id='game-body' data-aos='fade-in'   >
 
     
       <Helmet>
@@ -102,6 +122,14 @@ useEffect(() => {
 
         <title>Samurai battle</title>
       </Helmet>
+
+        
+
+
+      <div id="quiz-div" style={{  boxShadow:' 0px 0px 30px rgb(0, 0, 0)'}} data-aos='slide-left' data-aos-duration='1000' data-aos-delay='500'  >
+        <QuizContainer quiz={data} initialSeconds={40} setPoints={setPoints} points={points} setquizEnded={setQuizEnded} />
+      </div>
+
 
 
         <div className="canvas-container">
@@ -126,45 +154,6 @@ useEffect(() => {
           <canvas id='canvas' ref={canvasRef}>
           </canvas>
 
-
-          {/* <div className="formed">
-            <form
-              id="attackForm"
-              onSubmit={handleSubmission}
-              style={{
-                position: 'absolute',
-                top: '20px',
-                padding: '10px',
-                paddingBottom: '80px',
-                backgroundColor: '#333',
-                border: '2px solid #fff',
-                borderRadius: '5px',
-                textAlign: 'center',
-              }}
-              >
-              <input
-                type="text"
-                id="attackInput"
-                placeholder="Attack command"
-
-                style={{ width: '200px', padding: '10px', marginRight: '20px' }}
-                />
-              <button
-                type="submit"
-                style={{
-                  backgroundColor: '#f00',
-                  color: '#fff',
-                  border: 'none',
-                  padding: '5px',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                }}
-                >
-                Attack
-              </button>
-
-            </form>
-          </div> */}
         </div>
 
         <audio id="background-music" autoPlay loop>
@@ -174,10 +163,6 @@ useEffect(() => {
         <audio src={tie} id="tie-sound"></audio>
         <audio src={gameOver} id="game-over"></audio>
         <audio src={emotionalDamage} id="emotional-damage-sound"></audio> 
-
-
-
-
 
 <Helmet>
 <script>
@@ -362,7 +347,7 @@ class Fighter extends Sprite{
 
   emotionalDamage() {
       //this.health -= 100;
-      this.health = 0;
+      this.health -= 100;
 
       emotional_damage_meme.play()
 
@@ -733,16 +718,15 @@ function determineWinner({player, enemy, timerID}) {
 let timer = 50;
 let timerID;
 function decreaseTimer() {
- if (timer > 0) {                    //  Timer Functions
-     timerID = setTimeout(decreaseTimer, 1000);
-     timer--;        // -- means decreased by 1
-     document.querySelector('#timer').innerHTML = timer;
- }
+  if (timer > 0) { // Timer function
+    timerID = setTimeout(decreaseTimer, 1000);
+    timer--; // Decrease the timer
+    document.querySelector('#timer').innerHTML = timer; // This line updates the timer element
+  }
 
  
  if (timer === 0) {
      determineWinner({player, enemy, timerID})
-
      const deathStatus = document.querySelector('#deathBy');
      deathStatus.style.display = 'flex';
      deathStatus.innerHTML = 'Time Out'
