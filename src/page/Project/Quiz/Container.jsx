@@ -2,6 +2,8 @@ import React , { useState,useEffect,useRef }  from 'react'
 import './Container.css'
 import Form from './QuizForm'
 import bg from './wallpaperflare.com.jpg'
+import { useNavigate } from 'react-router-dom'
+
 
 import Timer from './Timer'
 import { init } from 'aos'
@@ -19,6 +21,7 @@ function QuizContainer({
   const [quizEnded, setQuizEnded] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [numofCorrectAnswers, setNumofCorrectAnswers] = useState(0);
+  const navigate = useNavigate();
 
   const handleNext = () => {
     if (currentQuestion < quiz.questions.length - 1) {
@@ -126,9 +129,9 @@ function QuizContainer({
                   </button>
                 )}
                 {quizEnded && (
-                  <button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => window.history.back()}>
+                  <a href="/project/js"><button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() =>  {}}>
                     Exit
-                  </button>
+                  </button></a>
                 )}
               </div>
             </div>

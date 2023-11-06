@@ -11,7 +11,7 @@ function ModuleSelect() {
     const [mdLevel, setMdLevel] = useState({
         md1: true,
         md2: true,
-        md3: false,
+        md3: true,
         md4: false,
     })
 

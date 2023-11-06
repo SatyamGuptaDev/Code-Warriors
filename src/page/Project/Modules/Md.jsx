@@ -1,12 +1,14 @@
 import React from 'react'
 import Slider from './Topic/Slider'
 import quizinfo  from '../Quiz/quiz.json'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Learn from './Learn';
 import Try from '../gameComp/Game';
+import { useEffect,useState } from 'react';
 
 
 export function Md1() {
+
 
   const module1 = [
 
@@ -133,14 +135,15 @@ export function Md1() {
  
       ]
 
+
     return (
-        <div className='w-full h-full bg-black' style={{ backgroundColor: 'black' }}>
-          <Routes>
-            <Route path='/' element={<Slider infoArray={infoArray} topicInfo={module1} module={"md-1"} />} />
-            <Route path={`/learn/:topic`} element={<Learn topicInfo={module1} module={"md-1"} />} />
-            <Route path='/quiz/:quizTopic' element={<Try  timeForQuiz = {200} topicInfo={module1}  quizObj={quizinfo} />} />
-          </Routes>
-      </div>
+      <div className="w-full h-full bg-black" style={{ backgroundColor: 'black' }}>
+      <Routes>
+        <Route path="/" element={<Slider infoArray={infoArray} topicInfo={module1} module={'md-1'} />} />
+        <Route path={`/learn/:topic`} element={<Learn topicInfo={module1} module={'md-1'} />} />
+        <Route path='/quiz/:quizTopic' element={<Try topicInfo={module1} quizObj={quizinfo} />} />
+      </Routes>
+    </div>
 
     )
 }
@@ -217,9 +220,6 @@ export function Md2() {
 ];
 
 
-
-
-
   const infoArray = [
       {
           name: 'Project: Building a To-Do List',
@@ -259,13 +259,15 @@ export function Md2() {
       },
 
     ];
+
+
     
   return (
       <div className=' w-full h-full bg-black' style={{backgroundColor: 'black'}} >
           <Routes>
             <Route path='/' element={<Slider infoArray={infoArray} topicInfo={module2} module={'md-2'} />} />
             <Route path={`/learn/:topic`} element={<Learn topicInfo={module2} quiz={quizinfo} module={'md-2'} />} />
-            <Route path='/quiz/:quizTopic' element={<Try  timeForQuiz = {200} topicInfo={module2}  quizObj={quizinfo} />} />
+            <Route path='/quiz/:quizTopic' element={<Try topicInfo={module2} quizObj={quizinfo} />} />
           </Routes>
       </div>
 
@@ -392,8 +394,7 @@ export function Md3() {
           <Routes>
             <Route path='/' element={<Slider infoArray={infoArray} topicInfo={module3} module={'md-3'} />} />
             <Route path={`/learn/:topic`} element={<Learn topicInfo={module3} quiz={quizinfo} module='md-3' />} />
-            <Route path='/quiz/:quizTopic' element={<Try  timeForQuiz = {200} topicInfo={module3}  quizObj={quizinfo} />} />
-
+            <Route path='/quiz/:quizTopic' element={<Try topicInfo={module3} quizObj={quizinfo} />} />
           </Routes>
       </div>
 
@@ -518,14 +519,12 @@ export function Md4() {
           <Routes>
             <Route path='/' element={<Slider infoArray={infoArray} topicInfo={module4} module={'md-4'} />} />
             <Route path='/learn/:topic' element={<Learn topicInfo={module4} quiz={quizinfo} module={'md-4'} />} />
-            <Route path="/quiz/:quizTopic" element={<Try  timeForQuiz = {200} topicInfo={module4}  quizObj={quizinfo} />} />
+            <Route path="/quiz/:quizTopic" element={<Try topicInfo={module4} quizObj={quizinfo} />} />
           </Routes>
       </div>
 
   )
 }
-
-
 
 
 

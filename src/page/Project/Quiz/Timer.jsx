@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 function Timer({ initialSeconds, onTimeout }) {
   const [remainingSeconds, setRemainingSeconds] = useState(initialSeconds);
@@ -20,10 +20,14 @@ function Timer({ initialSeconds, onTimeout }) {
 
   return (
     <div className="timer">
-      <p className="timer__text" style={{whiteSpace: 'nowrap'}}>Remaining time: </p>
+      <p className="timer__text" style={{ whiteSpace: 'nowrap' }}>
+        Remaining time:{' '}
+      </p>
       <span className="timer__seconds">{remainingSeconds} Sec</span>
     </div>
   );
 }
 
 export default React.memo(Timer);
+
+// The rest of your code remains the same with the suggested optimizations.

@@ -17,6 +17,7 @@ import  './css/style.css';
 
 
 function Try({
+
     timeForQuiz = 200,
     topicInfo,
     quizObj = data,
