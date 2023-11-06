@@ -5,6 +5,7 @@ import './LanguageSelect.css'
 import { NavLink } from 'react-router-dom'
 import AOS from "aos";
 import { useEffect } from 'react';
+import { Sidebar } from '../../components/SideBar';
 
 function LanguageSelect() {
 
@@ -18,6 +19,11 @@ function LanguageSelect() {
       }, []);
 
     return (
+        <>
+        <div className=' sidebar-app text-white absolute top-5 left-5 ' style={{ opacity: '1'}}>
+                <Sidebar />
+          </div>
+          
         <div className=' body-ls  fade-in'>
             <h1 className='heading-ls text-center text-white font-bold font-serif text-4xl'>Select a language you want to start with</h1>
             <div className='p-3 flex justify-around self-center m-10'>
@@ -45,6 +51,7 @@ function LanguageSelect() {
             } */}
             <img id='minion' src='namaste_minion.png'  />
         </div>
+        </>
     )
 }
 

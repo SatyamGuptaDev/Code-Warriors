@@ -6,9 +6,10 @@ import myimage2 from './assets/images/img2.jpeg';
 import myimage3 from './assets/images/img3.jpeg';
 import myimage4 from './assets/images/img4.jpeg';
 import { Link } from 'react-router-dom';
+import { Sidebar } from '../../../../components/SideBar';
 
 
-function Slider({infoArray}) {
+function Slider({infoArray, topicInfo}) {
    const nextRef = useRef(null);
   const prevRef = useRef(null);
 
@@ -45,14 +46,6 @@ function Slider({infoArray}) {
     };
 }, []);
 
-
-
-
-
-
-
-
-
   const imgArray = [myimage4, myimage, myimage2, myimage3, myimage4, myimage, myimage2, myimage3, myimage4, myimage, myimage2, myimage3];
   const imgs =[];
 
@@ -62,13 +55,18 @@ function Slider({infoArray}) {
 
   return (
     <>
+
     <div className="slider-container fade-in bg-black ">
+
     <div className="slide">
   {imgs.map((item, index) => {
     if (infoArray[index].isUnlock === false) {
       return (
         // <div key={index} className="item" style={{ backgroundColor: "#252424b4", border: '1px solid #fff', display: 'flex', justifyContent: 'center', alignItems: 'center', filter: 'blur(0px)' }}>
         <div key={index} className="item" style={{backgroundImage: `url(${item})` }}>
+                      <div className=' slider-sidebar fade-in text-white absolute top-5 left-5  '>
+                <Sidebar />
+            </div>
             <p className="heading"> Next Topics :</p>
            <div className="content" style={{ border: '1px solid #fff ' }}>
                 <div className="name">{infoArray[index].name}</div>
@@ -96,6 +94,9 @@ function Slider({infoArray}) {
     } else {
       return (
         <div key={index} className="item" style={{ backgroundImage: `url(${item})` }}>
+                      <div className=' fade-in  slider-sidebar text-white absolute top-5 left-5  '>
+                <Sidebar />
+            </div>
           <p className="heading"> Next Topics: </p> 
           <div className="content">
             <div className="name">{infoArray[index].name}</div>

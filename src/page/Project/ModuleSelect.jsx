@@ -3,6 +3,8 @@ import { useState,useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './ModuleSelect.css'
 import AOS from "aos";
+import { Sidebar } from '../../components/SideBar';
+
 
 
 function ModuleSelect() {
@@ -24,6 +26,11 @@ function ModuleSelect() {
 
 
     return (
+        <>
+          <div className=' sidebar-app text-white absolute top-5 left-5 ' style={{ opacity: '1'}}>
+                <Sidebar />
+          </div>
+
         <div className=' body-ms  fade-in'>
             <h1 className='heading-ms text-center text-white font-bold font-serif text-4xl'>Select a module to start with</h1>
             <div className='p-3 flex-col '>
@@ -83,6 +90,7 @@ function ModuleSelect() {
 
             </div>
         </div>
+        </>
     )
 }
 

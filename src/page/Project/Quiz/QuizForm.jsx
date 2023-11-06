@@ -86,6 +86,8 @@ useEffect(() => {
   }
 }, [currentQuestion]);
 
+// ...
+
 useEffect(() => {
   if (quiz.questions[currentQuestion].answerSelectionType === 'single') {
     if (selectedOptions[currentQuestion].length === 0) {
@@ -117,13 +119,14 @@ useEffect(() => {
         return newNumofCorrect;
       });
     } else {
-      let count = 0;
-      for (let i = 0; i < selectedOptions[currentQuestion].length; i++) {
-        if (answer.includes(selectedOptions[currentQuestion][i])) {
-          count++;
+      let isAllCorrect = true;
+      for (let i = 0; i < answer.length; i++) {
+        if (!selectedOptions[currentQuestion].includes(answer[i])) {
+          isAllCorrect = false;
+          break;
         }
       }
-      if (count === answer.length) {
+      if (isAllCorrect && answer.length === selectedOptions[currentQuestion].length) {
         setNumofCorrect((prev) => {
           const newNumofCorrect = [...prev];
           newNumofCorrect[currentQuestion] = 1; // 1 for correct
@@ -139,6 +142,9 @@ useEffect(() => {
     }
   }
 }, [selectedOptions]);
+
+// ...
+
 
 
 
@@ -173,13 +179,14 @@ useEffect(() => {
         return newPoints;
       });
     } else {
-      let count = 0;
-      for (let i = 0; i < selectedOptions[currentQuestion].length; i++) {
-        if (answer.includes(selectedOptions[currentQuestion][i])) {
-          count++;
+      let isAllCorrect = true;
+      for (let i = 0; i < answer.length; i++) {
+        if (!selectedOptions[currentQuestion].includes(answer[i])) {
+          isAllCorrect = false;
+          break;
         }
       }
-      if (count === answer.length) {
+      if (isAllCorrect && answer.length === selectedOptions[currentQuestion].length) {
         setPoints((prevPoints) => {
           const newPoints = [...prevPoints];
           newPoints[currentQuestion] = parseInt(quiz.questions[currentQuestion].point); // Set points for a correct answer
@@ -195,7 +202,6 @@ useEffect(() => {
     }
   }
 }, [selectedOptions]);
-
 
 
 

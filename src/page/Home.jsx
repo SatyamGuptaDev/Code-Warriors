@@ -1,6 +1,6 @@
 import "./css/Home.css";
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Plx from "react-plx";
@@ -194,7 +194,7 @@ const Home = () => {
             <nav dataCursor='pointer' className="home-nav" style={{paddingTop:"-24px", display: "flex",height: "43px", paddingBottom: "7px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white",    borderTop: 0}}>
               <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
               <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
-              <a style={{textDecoration: "none", color:"white"}} >Project</a>
+              <Link to='/project' style={{textDecoration: "none", color:"white"}}>Project</Link>
               <a style={{textDecoration: "none", color:"white"}} >Developers</a>
             </nav>
           </Plx>
