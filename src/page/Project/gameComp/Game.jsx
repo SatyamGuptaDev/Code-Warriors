@@ -3,6 +3,7 @@ import { useRef,useEffect,useState } from 'react';
 import {Helmet} from "react-helmet";
 import AOS from 'aos';
 import QuizContainer from '../Quiz/Container';
+import { useParams } from 'react-router-dom';
 
 
 import bluebirdPiano from './assets/sounds/bluebird_piano.mp3' ;
@@ -15,14 +16,22 @@ import data from '../Quiz/quiz.json'
 import  './css/style.css';
 
 
-function Try() {
+function Try({
+    timeForQuiz = 200,
+    topicInfo,
+    quizObj = data,
+}) {
 
 
    const canvasRef = useRef(null);
    const [numofCorrect, setNumofCorrect] = useState(0);
-   const numOfquestions = data.questions.length;
+   const numOfquestions = quizObj.questions.length;
    const [points, setPoints] = useState(Array(numOfquestions).fill(0));
    const [quizEnded, setQuizEnded] = useState(false);
+   const { quizTopic } = useParams();
+   //    const selectedTopic = topicInfo.find((item) => item.code === quizTopic);
+
+
 
 
 
@@ -125,7 +134,7 @@ useEffect(() => {
 
 
       <div id="quiz-div" style={{  boxShadow:' 0px 0px 30px rgb(0, 0, 0)'}} data-aos='slide-left' data-aos-duration='1000' data-aos-delay='500'  >
-        <QuizContainer quiz={data} initialSeconds={120} setPoints={setPoints} points={points} setquizEnded={setQuizEnded} />
+        <QuizContainer quiz={quizObj} initialSeconds={timeForQuiz} setPoints={setPoints} points={points} setquizEnded={setQuizEnded} />
       </div>
 
 

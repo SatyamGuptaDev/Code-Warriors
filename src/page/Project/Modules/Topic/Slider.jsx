@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { Sidebar } from '../../../../components/SideBar';
 
 
-function Slider({infoArray, topicInfo}) {
+function Slider({infoArray, topicInfo, module}) {
    const nextRef = useRef(null);
   const prevRef = useRef(null);
 
@@ -56,7 +56,7 @@ function Slider({infoArray, topicInfo}) {
   return (
     <>
 
-    <div className="slider-container fade-in bg-black ">
+    <div className=" slider-container fade-in bg-black ">
 
     <div className="slide">
   {imgs.map((item, index) => {
@@ -101,7 +101,7 @@ function Slider({infoArray, topicInfo}) {
           <div className="content">
             <div className="name">{infoArray[index].name}</div>
             <div className="des">{infoArray[index].des}</div>
-            <Link to='/project/js/try' ><button style={{}}>Learn More</button></Link>
+            <Link to={`/project/${module}/learn/${topicInfo[index].code}`} ><button style={{}}>Learn More</button></Link>
           </div>
         </div>
       );

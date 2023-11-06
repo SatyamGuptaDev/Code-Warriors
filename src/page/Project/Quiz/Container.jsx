@@ -126,7 +126,7 @@ function QuizContainer({
                   </button>
                 )}
                 {quizEnded && (
-                  <button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => { }}>
+                  <button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => window.history.back()}>
                     Exit
                   </button>
                 )}
