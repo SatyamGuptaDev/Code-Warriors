@@ -3,56 +3,93 @@ import { useRef,useEffect,useState } from 'react';
 import {Helmet} from "react-helmet";
 import AOS from 'aos';
 import QuizContainer from '../Quiz/Container';
-import { useParams } from 'react-router-dom';
-
-
 import bluebirdPiano from './assets/sounds/bluebird_piano.mp3' ;
 import whoosh from './assets/sounds/whoosh.wav';
 import tie from './assets/sounds/tie.mp3';
 import gameOver from './assets/sounds/game_over.mp3';
 import emotionalDamage from './assets/sounds/emotional_damage.mp3';
-import data from '../Quiz/quiz.json' 
-
+import data from '../Quiz/quiz.json'; 
 import  './css/style.css';
+function Try() {
 
-
-function Try({
-
-    timeForQuiz = 200,
-    topicInfo,
-    quizObj = data,
-}) {
-
-
-   const canvasRef = useRef(null);
-   const [numofCorrect, setNumofCorrect] = useState(0);
-   const numOfquestions = quizObj.questions.length;
-   const [points, setPoints] = useState(Array(numOfquestions).fill(0));
-   const [quizEnded, setQuizEnded] = useState(false);
-   const { quizTopic } = useParams();
-   //    const selectedTopic = topicInfo.find((item) => item.code === quizTopic);
-
-
-
-
-
-   useEffect(() => {
-        if (quizEnded) {
-            // find how many points the player got are grater than one
-            let count = 0;
-            for (let i = 0; i < points.length; i++) {
-                if (points[i] > 0) {
-                    count++;
-                }
+    const canvasRef = useRef(null);
+    const [numofCorrect, setNumofCorrect] = useState(0);
+    const numOfquestions = data.questions.length;
+    const [points, setPoints] = useState(Array.from({ length: numOfquestions }, () => 0));
+    const [quizEnded, setQuizEnded] = useState(false);
+    
+    const [gameStarted, setGameStarted] = useState(false);
+    
+    function startGame() {
+      setGameStarted(true);
+    }
+    
+    useEffect(() => {
+        if (quizEnded === true) {
+          let correctCount = 0;
+          let incorrectCount = 0;
+      
+          for (let i = 0; i < points.length; i++) {
+            if (points[i] > 0) {
+              correctCount++;
+            } else {
+              incorrectCount++;
             }
-            setNumofCorrect(() => count);
+          }
+      
+          setNumofCorrect(correctCount);
+      
+          const runPlayerCode = () => {
+            keys.d.pressed = true;
+            player.lastKey = 'd';
+          
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                for (let i = 1; i <= correctCount; i++) {
+                  setTimeout(() => {
+                    player.attack();
+                    if (i === correctCount) {
+                      if (correctCount > incorrectCount) {
+                        player.superAttack();
+                      }
+                      resolve();
+                    }
+                  }, i * 1000);
+                }
+                keys.d.pressed = false;
+                player.lastKey = '';
+              }, 2000);
+            });
+          };
+      
+          const runEnemyCode = () => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                for (let i = 1; i <= incorrectCount; i++) {
+                  setTimeout(() => {
+                    enemy.attack();
+                    if (i === incorrectCount) {
+                        if(correctCount < incorrectCount){
+                            enemy.superAttack();
+                        }
+                      resolve();
+                    }
+                  }, i * 1000);
+                }
+              }, (correctCount + 1) * 1000);
+            });
+          };
+      
+          runPlayerCode()
+            .then(runEnemyCode)
+            .catch((error) => {
+              console.error('An error occurred:', error);
+            });
         }
-    }, [quizEnded]);
-    
-
-    console.log('numofCorrect', numofCorrect);
-    console.log('points', points);
-    
+      }, [quizEnded]);
+  
+  
+  
 
 
 
@@ -66,25 +103,17 @@ function Try({
         }
     }
 
-    // Call the function directly
-
 
         playAudio();
         window.addEventListener('click', playAudio);
         return () => {
             window.removeEventListener('click', playAudio);
         };
-
-    // Add the event listener
-
-    // Clean up function
 }, []);
 
 
 useEffect(() => {
-    // Existing code...
 
-    // Add this function
     function preventSpacebarScrolling(event) {
         if (event.code === 'Space') {
             event.preventDefault();
@@ -112,7 +141,7 @@ useEffect(() => {
     AOS.refresh();
   }, []);
 
-
+  const overallPoints = points.reduce((total, point) => total + point, 0);
   return (
 
     
@@ -135,18 +164,16 @@ useEffect(() => {
 
 
       <div id="quiz-div" style={{  boxShadow:' 0px 0px 30px rgb(0, 0, 0)'}} data-aos='slide-left' data-aos-duration='1000' data-aos-delay='500'  >
-        <QuizContainer quiz={quizObj} initialSeconds={timeForQuiz} setPoints={setPoints} points={points} setquizEnded={setQuizEnded} />
+        <QuizContainer quiz={data} initialSeconds={40} setPoints={setPoints} points={points} setquizEnded={setQuizEnded} />
       </div>
-
-
-
         <div className="canvas-container">
           <div className="Bars-Interface">
             <div className="parent-playerHealth">
               <div id="player-health-bg"></div>
               <div id="playerHealth"></div>
             </div>
-            <div id="timer">10</div>
+            <div id="timer">
+            </div> 
             <div className="parent-enemyHealth">
               <div id="enemy-health-bg"></div>
               <div id="enemyHealth"></div>
@@ -157,6 +184,10 @@ useEffect(() => {
           <div className="playAgainBox">
             <button id="exit-btn">Exit</button>
           </div>
+          
+          <div id="points-display" >
+                 Points: {overallPoints}
+                   </div>
 
 
           <canvas id='canvas' ref={canvasRef}>
@@ -175,9 +206,6 @@ useEffect(() => {
 <Helmet>
 <script>
 {`
-
-// Class
-
 class Sprite {
   constructor({
       position, 
@@ -319,8 +347,6 @@ class Fighter extends Sprite{
       attack_sound.play()
       this.isAttacking = true;
   }
-
-  
   superAttack() {
       if (this.superAttack_Count == 0) {
           
@@ -485,10 +511,6 @@ class Fighter extends Sprite{
 
 const background_music = document.querySelector('#background-music');
     background_music.volume = 0.5;
-
-
-
-
 const attack_sound = document.querySelector('#attack-sound');
 attack_sound.volume = 0.4;
 
@@ -540,67 +562,31 @@ const keys = {
 window.addEventListener('keydown', (event)=>{
   console.log(event.key);
 
+
+          
   if (!player.dead) {
       switch  (event.key) {
 
-              // Player Keys
-          case 'd':
-              keys.d.pressed = true;
-              player.lastKey = 'd';
-              break 
-
-          case 'a':
-              keys.a.pressed = true;
-              player.lastKey = 'a';
-              break
-
-          case 'w':
-              if (player.position.y > 100){
-                  player.velocity.y = -15;
-                  player.lastKey = 'w';
-              }
-              break
-
           case ' ':   // spacebar
-              player.attack();
-              break
-          case 's':   // spacebar
               player.attack();
               break
 
           case 'e':
               player.superAttack();
-              break
+              break 
       }
   }
 
   if (!enemy.dead) {
       switch  (event.key) {
-              // Enemy Keys
-          case 'ArrowRight':
-              keys.ArrowRight.pressed = true;
-              enemy.lastKey = 'ArrowRight';
-              break
-
-          case 'ArrowLeft':
-              keys.ArrowLeft.pressed = true;
-              enemy.lastKey = 'ArrowLeft';
-              break
-
-          case 'ArrowUp':
-              if (enemy.position.y > 100) {
-                  enemy.velocity.y = -15;
-                  enemy.lastKey = 'ArrowUp';
-              }
-              break
-
-          case 'ArrowDown':
-              enemy.attack();
-              break
 
           case 'Enter':
               enemy.superAttack();
               break
+
+            case 'ArrowUp':
+                enemy.attack();
+                break
       }
   }
 
@@ -619,7 +605,6 @@ window.addEventListener('keyup', (event)=>{
       case 'a':
           keys.a.pressed = false;
           break
-      
 
           // Enemy KeysUP
       case 'ArrowRight':
@@ -919,8 +904,7 @@ function decreaseTimer() {
             }
         })
         player.draw();
-        enemy.draw();
-        decreaseTimer();   
+        enemy.draw(); 
         function animate() {
             window.requestAnimationFrame(animate);         // means FRAME OR FPS
             // console.log('Animating');    // Debugging Purpose
@@ -972,6 +956,7 @@ function decreaseTimer() {
 
 
             // Enemy
+            
             if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
                 if (enemy.position.x > 0) {
                     enemy.velocity.x = -5;

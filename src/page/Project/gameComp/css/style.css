@@ -60,7 +60,7 @@
 #timer {
     background-color: black;
     height: 50px;
-    width: 100px;
+    width: 20px;
     flex-shrink: 0;     /* 0 means FALSE */
     display: flex;
     justify-content: center;
@@ -74,7 +74,7 @@
 .parent-enemyHealth {
     position: relative;
     /* height: 30px; */
-    width: 100%;
+    width: 200px;
     border-top: 4px solid white;
     border-bottom: 4px solid white;
     border-right: 4px solid white;
@@ -99,7 +99,7 @@
 .parent-playerHealth {
     position: relative;
     /* height: 30px; */
-    width: 100%;
+    width: 200px;
     border-top: 4px solid white;
     border-bottom: 4px solid white;
     border-left: 4px solid white;
@@ -240,3 +240,9 @@
    padding-right: 200px;
 }
 
+#points-display{
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    color: white;
+}
