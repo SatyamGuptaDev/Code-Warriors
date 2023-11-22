@@ -10,6 +10,7 @@ import Try from './page/Project/gameComp/Game';
 import {Md1, Md2, Md3, Md4} from './page/Project/Modules/Md';
 import QuizContainer from './page/Project/Quiz/Container';
 import { Sidebar } from './components/SideBar';
+import LiveWebEditor from './page/Project/PracticeJS/LivewebEditor';
 
 
 
@@ -48,6 +49,7 @@ function App() {
             <Route path="/project/md-4/*" element={<Md4 />} />
             <Route path="/project/js/try" element={<Try />} />
             <Route path="/project/js/quiz" element={<QuizContainer />} />
+            <Route path='/project/practicejs' element={<LiveWebEditor />} />
 
           </Routes>
       </div>

@@ -49,9 +49,7 @@ function LanguageSelect() {
 
                 }, 2000)
             } */}
-              <div id="image-container">
-                       <img src="./Untitled-video-Made-with-Clipc-unscreen.gif" alt="Dancing Jimmy Fallon" />
-                  </div>
+              <img id='minion' src='namaste_minion.png'  />
         </div>
         </>
     )

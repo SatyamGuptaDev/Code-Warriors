@@ -185,9 +185,9 @@ useEffect(() => {
             <button id="exit-btn">Exit</button>
           </div>
           
-          <div id="points-display" >
+          {quizEnded && <div id="points-display" >
                  Points: {overallPoints}
-                   </div>
+        </div>}
 
 
           <canvas id='canvas' ref={canvasRef}>

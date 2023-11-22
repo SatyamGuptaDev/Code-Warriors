@@ -113,9 +113,8 @@ export const Sidebar = () => {
 };
 
 const items = [
-   { title: 'Select Language', Icon: FaLaptopCode  , href: '/' },
-
-  { title: 'Practice JS', Icon: SiJavascript , href: '/about' },
+   { title: 'Select Language', Icon: FaLaptopCode  , href: '/project' },
+  { title: 'Practice JS', Icon: SiJavascript , href: '/project/practicejs' },
   // { title: '', Icon: , href: '/developers' },
   // { title: '', Icon: , href: '#' },
   // { title: '', Icon: , href: '#' },

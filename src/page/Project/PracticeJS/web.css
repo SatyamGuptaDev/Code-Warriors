@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+.split-container{
+  display: flex;
+  max-height: 100vh ;
+  max-width: 100vw;
+  overflow-y: hidden; /* Hide vertical scroll */
+  display: flex;
+  flex-direction: row;
+  background: #2f2f2f;
+}
+
+.container-practicejs {
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background: #2f2f2f;
+  margin: 3px;
+}
+
+.container-practicejs textarea {
+  background-color: #121212;
+  border: 1px solid #0dddf0;
+  resize: none;
+  width: 100%;
+  height: 33.333%;
+  font-size: 1.4rem;
+  padding: 10px;
+  resize: vertical;
+  color: white;
+  text-align: left;
+}
+
+.container-practicejs textarea:focus {
+  outline: none;
+  color: white;
+}
+
+.iframe-container {
+  background: white;
+  width: 1000px;
+  height: 100vh;
+  overflow-y: hidden; /* Hide vertical scroll */
+}
+
+#viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.gutter {
+  cursor: e-resize;
+  height: 100%;
+  background: grey;
+}
+
+.gutter.gutter-horizontal {
+  cursor: ew-resize;
+}
+
+#btn {
+  background: #088b43;
+  color: white;
+  font-size: 1.2rem;
+  width: 100px;
+  height: 50px;
+  margin: 10px auto;
+  border-radius: 20px;
+  padding: 10px ;
+}
+
+.split-container-practicejs {
+  display: flex;
+}
+
+#runBtn {
+  background: #088b43;
+  color: white;
+  font-size: 1.4rem;
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 30rem;
+  margin-right: 60px;
+}
+
+@keyframes iframeAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#viewer {
+  animation: iframeAnimation 1s ease-in-out 1;
+}
+/* Add this CSS to your stylesheet */
+
+.iframe-container-practicejs h1 {
+	overflow: hidden;
+	white-space: nowrap;
+	animation: typing 2s steps(40, end), blink-caret 0.5s step-end infinite;
+  }
+  
+  @keyframes typing {
+	from {
+	  width: 0;
+	}
+	to {
+	  width: 100%;
+	}
+  }
+  
+  @keyframes blink-caret {
+	from, to {
+	  border-right: 2px solid transparent;
+	}
+	50% {
+	  border-right: 2px solid black;
+	}
+  }
+
+.code-textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	resize: none;
+	animation: animate-textarea 0.5s forwards;
+	opacity: 0;
+	animation-delay: 0.5s; 
+  }
+  
+  @keyframes animate-textarea {
+	0% {
+	  transform: translateX(-20px);
+	  opacity: 0;
+	}
+	100% {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+  
+
