@@ -85,7 +85,7 @@ const handleResize = (e, { size }) => {
   return (
     
 
-    <div className="split-container">
+    <div className="split-container fade-in">
 
       <div className="container-practicejs">
 
@@ -136,6 +136,7 @@ const handleResize = (e, { size }) => {
 
       <div className="iframe-container">
         <h1>Here is your output...</h1>
+        <div style={{background: '#2f2f2f', width: '100%', height: '3px'}}></div>
         <iframe id="viewer" srcDoc={iframeContent}></iframe>
       </div>
     </div>

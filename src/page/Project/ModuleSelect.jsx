@@ -27,11 +27,11 @@ function ModuleSelect() {
 
     return (
         <>
+
+        <div className=' body-ms  fade-in'>
           <div className=' sidebar-app text-white absolute top-5 left-5 ' style={{ opacity: '1'}}>
                 <Sidebar />
           </div>
-
-        <div className=' body-ms  fade-in'>
             <h1 className='heading-ms text-center text-white font-bold font-serif text-4xl'>Select a module to start with</h1>
             <div className='p-3 flex-col '>
 

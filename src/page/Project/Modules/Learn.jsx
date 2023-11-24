@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Routes, useParams, Route } from 'react-router-dom';
 import { Sidebar } from '../../../components/SideBar';
 import Try from '../gameComp/Game';
+import './Learn.css';
 
 export default function Learn({ topicInfo, module }) {
   const { topic } = useParams();
@@ -10,8 +11,11 @@ export default function Learn({ topicInfo, module }) {
   const selectedTopic = topicInfo.find((item) => item.code === topic);
 
   return (
-    <div className=" mx-auto pt-12  text-white bg-black " style={{height: '100vh', width: '100vw'}}>
-            <div className=' slider-sidebar fade-in text-white absolute top-5 left-5  '>
+    <>
+    
+
+    <div className=" fade-in mx-auto pt-12  text-white bg-black " style={{height: '100vh', width: '100vw'}}>
+    <div className=' slider-sidebar fade-in text-white absolute top-5 left-5  '>
                 <Sidebar />
             </div>
         <h2 className="text-3xl mb-4">{selectedTopic.title}</h2>
@@ -41,5 +45,6 @@ export default function Learn({ topicInfo, module }) {
       </Link>
 
     </div>
+    </>
   );
 }
