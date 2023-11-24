@@ -2,7 +2,7 @@ import React , { useState,useEffect,useRef }  from 'react'
 import './Container.css'
 import Form from './QuizForm'
 import bg from './wallpaperflare.com.jpg'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 
 import Timer from './Timer'
@@ -129,9 +129,9 @@ function QuizContainer({
                   </button>
                 )}
                 {quizEnded && (
-                  <a href="/project/js"><button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() =>  {}}>
+                  <Link to="/project/js"><button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() =>  {}}>
                     Exit
-                  </button></a>
+                  </button></Link>
                 )}
               </div>
             </div>
