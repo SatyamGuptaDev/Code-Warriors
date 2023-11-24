@@ -56,7 +56,7 @@ function Slider({infoArray, topicInfo, module}) {
   return (
     <>
 
-    <div className=" slider-container fade-in bg-black ">
+    <div className=" slider-container fade-in-slider bg-black ">
 
     <div className="slide">
   {imgs.map((item, index) => {

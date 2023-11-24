@@ -5,12 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Plx from "react-plx";
 import Volume from "../components/Volume"; 
+import { useNavigate } from "react-router-dom";
 
 
 
 const Home = () => {
 
 
+  const navigate = useNavigate();
 
 
 
@@ -149,8 +151,9 @@ const Home = () => {
 
       // Simulate a delay for 4 seconds before loading the project page
       setTimeout(() => {
-        // Replace this with the actual URL of the project page
-        window.location.href = "/project";
+        // navigate to project page with useNavigate hook
+        navigate("/project");
+
       }, 1000);
     };
     
