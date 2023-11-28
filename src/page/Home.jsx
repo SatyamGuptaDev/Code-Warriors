@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
 
-  const isLogin = useSelector((state) => state.authentication.isAuthenticated);
+  const isLogin = useSelector((state) => state.auth.isAuthenticated );
 
 
 

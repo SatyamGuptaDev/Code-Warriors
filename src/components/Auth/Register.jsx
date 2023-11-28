@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, FormControlLabel, TextField, Typography } from '@mui/material';
 import './style.css';
 import SideImg from './assets/warrior1.mp4';
 import { useForm } from 'react-hook-form';
@@ -19,56 +18,50 @@ const Auth = () => {
         Your browser does not support the video tag.
       </video>
       <form action="" method="post" onSubmit={handleSubmit(onSubmit)}>
-        <Typography  variant='h4'>{isSignUp ? 'Sign Up' : 'Sign In'}</Typography>
+        <h4>{isSignUp ? 'Sign Up' : 'Sign In'}</h4>
         <p>{isSignUp ? 'Unlock the coding journey!' : 'Welcome back!'}</p>
 
         <div className="formgroup">
           {isSignUp && (
             <>
-              <TextField
+              <input
                 {...register('name', {
                   required: 'Name Field Required',
                   maxLength: { value: 15, message: 'Maximum 15 Characters' },
                 })}
                 type='text'
-                label="Name"
-                color="success"
-                variant="outlined"
+                placeholder="Name"
               />
-              <Typography color="error" variant='span'>{errors?.name && errors.name.message}</Typography>
+              <span className="error">{errors?.name && errors.name.message}</span>
             </>
           )}
 
-          <TextField
+          <input
             {...register('email', { required: 'Email Field Required' })}
             type='email'
-            label="Email"
-            color="success"
-            variant="outlined"
+            placeholder="Email"
           />
-          <Typography color="error" variant='span'>{errors?.email && errors.email.message}</Typography>
+          <span className="error">{errors?.email && errors.email.message}</span>
 
-          <TextField
+          <input
             {...register('psw', {
               required: 'Password Field Required',
               maxLength: { value: 15, message: 'Maximum 15 Characters' },
               minLength: { value: 4, message: 'Minimum 4 Characters' },
             })}
             type='password'
-            label="Password"
-            color="success"
-            variant="outlined"
+            placeholder="Password"
           />
-          <Typography color="error" variant='span'>{errors?.psw && errors.psw.message}</Typography>
+          <span className="error">{errors?.psw && errors.psw.message}</span>
 
-          {isSignUp && <FormControlLabel control={<Checkbox color="success" />} label="Remember Me" />}
-          <Button type='submit' variant="contained">
+          {isSignUp && <label><input type="checkbox" /> Remember Me</label>}
+          <button type='submit'>
             {isSignUp ? 'Create Account' : 'Sign In'}
-          </Button>
+          </button>
 
-          <Typography color="textSecondary" onClick={() => setIsSignUp(!isSignUp)} style={{ cursor: 'pointer' }}>
+          <span className="text-secondary" onClick={() => setIsSignUp(!isSignUp)} style={{ cursor: 'pointer' }}>
             {isSignUp ? 'Already have an account? Sign In' : 'Don\'t have an account? Sign Up'}
-          </Typography>
+          </span>
         </div>
       </form>
     </div>
