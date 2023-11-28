@@ -11,6 +11,8 @@ import { AiOutlineLogout } from 'react-icons/ai';
  import { FaLaptopCode } from 'react-icons/fa';
 import { SiJavascript } from 'react-icons/si';
 
+import { GiProgression } from "react-icons/gi";
+
 
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -145,6 +147,9 @@ const dispatch = useDispatch();
 const items = [
    { title: 'Select Language', Icon: FaLaptopCode  , href: '/project' },
   { title: 'Practice JS', Icon: SiJavascript , href: '/project/practicejs' },
+  { title: 'Progress', Icon: GiProgression , href: '/project/progress' },
+
+
   // { title: '', Icon: , href: '/developers' },
   // { title: '', Icon: , href: '#' },
   // { title: '', Icon: , href: '#' },

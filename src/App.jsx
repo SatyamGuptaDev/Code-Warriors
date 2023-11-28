@@ -14,6 +14,8 @@ import { Sidebar } from './components/SideBar';
 import LiveWebEditor from './page/Project/PracticeJS/LivewebEditor';
 import MdSelectPy from './page/Project/MdSelect-py';
 import Auth from './page/Auth/index';
+import Progress from './page/Project/progress/card';
+import Contact from './page/contact/Contact';
 
 import { useSelector } from 'react-redux';
 
@@ -47,6 +49,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/auth/*" element={<Auth />} />
 
 
@@ -71,6 +74,7 @@ function App() {
             <Route path="/project/js/try" element={isLogin ? <Try /> : <Auth />} />
             <Route path="/project/js/quiz" element={isLogin ? <QuizContainer /> : <Auth />} />
             <Route path='/project/practicejs' element={isLogin ? <LiveWebEditor /> : <Auth />} />
+            <Route path='/project/progress' element={isLogin ? <Progress /> : <Auth />} />
 
             
             {/* <Route path="/project" element={<LanguageSelect />} />

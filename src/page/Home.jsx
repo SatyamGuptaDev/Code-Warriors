@@ -126,8 +126,8 @@ useEffect(() => {
             <nav dataCursor='pointer' className="home-nav" style={{paddingTop:"-24px", display: "flex",height: "43px", paddingBottom: "7px", transform: "translateX(-50%)", flexDirection: "row", justifyContent: "space-evenly", alignItems: "flex-end", color: "white",    borderTop: 0}}>
               <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
               <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
-              <Link to='/project' style={{textDecoration: "none", color:"white"}}>Project</Link>
-              <a style={{textDecoration: "none", color:"white"}} >Developers</a>
+              <NavLink to='/project' style={{textDecoration: "none", color:"white"}}>Project</NavLink>
+              <NavLink to='/contact' style={{textDecoration: "none", color:"white"}}>Contact</NavLink>
             </nav>
           </Plx>
     

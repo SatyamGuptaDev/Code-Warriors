@@ -39,7 +39,7 @@ function About() {
           <NavLink to='/' style={{textDecoration: "none", color:"white"}}>Home</NavLink>
           <NavLink to='/about' style={{textDecoration: "none", color:"white"}}>About</NavLink>
             <NavLink to='/project' style={{textDecoration: "none", color:"white"}}>Project</NavLink>
-            <NavLink to='/team' style={{textDecoration: "none", color:"white"}}>Team</NavLink>
+            <NavLink to='/contact' style={{textDecoration: "none", color:"white"}}>Contact</NavLink>
         </nav>
             <div className="about-container  ">
           
