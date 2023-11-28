@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom'
 import AOS from "aos";
 import { useEffect } from 'react';
 import { Sidebar } from '../../components/SideBar';
-
+import { useSelector } from 'react-redux';
+import Auth from '../Auth/index'
 
 import { Tilt } from 'react-tilt'
 
@@ -33,8 +34,14 @@ function LanguageSelect() {
         AOS.refresh();
       }, []);
 
+    const isLogin = useSelector((state) => state.auth.isAuthenticated);
+      console.log(isLogin);
+
+
     return (
         <>
+
+
           
         <div className=' body-ls  fade-in'>
         <div className=' sidebar-app text-white absolute top-5 left-5 ' style={{ opacity: '1'}}>

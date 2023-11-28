@@ -13,11 +13,14 @@ import QuizContainer from './page/Project/Quiz/Container';
 import { Sidebar } from './components/SideBar';
 import LiveWebEditor from './page/Project/PracticeJS/LivewebEditor';
 import MdSelectPy from './page/Project/MdSelect-py';
-import Auth from './components/Auth/Register';
+import Auth from './page/Auth/index';
+
+import { useSelector } from 'react-redux';
 
 
 
 function App() {
+  const isLogin = useSelector((state) => state.auth.isAuthenticated);
 
     const handleSideBar = () => {
     // if the path is ["/project", "/project/js", "/project/md-1", "/project/md-2", "/project/md-3", "/project/md-4"] then show sidebar
@@ -44,10 +47,35 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/project" element={<LanguageSelect />} />
+            <Route path="/auth/*" element={<Auth />} />
+
+
+
+
+          {/* if the user is not logged in then redirect to login page */}
+
+            <Route path="/project" element={isLogin ? <LanguageSelect /> : <Auth />} />
+            <Route path="/project/js" element={isLogin ? <ModuleSelect /> : <Auth />} />
+            <Route path="/project/py" element={isLogin ? <MdSelectPy /> : <Auth />} />
+
+            <Route path="/project/md-1/*" element={isLogin ? <Md1 /> : <Auth />} />
+            <Route path="/project/md-2/*" element={isLogin ? <Md2 /> : <Auth />} />
+            <Route path="/project/md-3/*" element={isLogin ? <Md3 /> : <Auth />} />
+            <Route path="/project/md-4/*" element={isLogin ? <Md4 /> : <Auth />} />
+
+            <Route path="/project/py-1/*" element={isLogin ? <PythonModule1 /> : <Auth />} />
+            <Route path="/project/py-2/*" element={isLogin ? <PythonModule2 /> : <Auth />} />
+            <Route path="/project/py-3/*" element={isLogin ? <PythonModule3 /> : <Auth />} />
+            <Route path="/project/py-4/*" element={isLogin ? <PythonModule4 /> : <Auth />} />
+
+            <Route path="/project/js/try" element={isLogin ? <Try /> : <Auth />} />
+            <Route path="/project/js/quiz" element={isLogin ? <QuizContainer /> : <Auth />} />
+            <Route path='/project/practicejs' element={isLogin ? <LiveWebEditor /> : <Auth />} />
+
+            
+            {/* <Route path="/project" element={<LanguageSelect />} />
             <Route path="/project/js" element={<ModuleSelect />} />
             <Route path="/project/py" element={<MdSelectPy />} />
-            <Route path="/auth" element={<Auth />} />
 
 
             <Route path="/project/md-1/*" element={<Md1 />} />
@@ -63,7 +91,7 @@ function App() {
 
             <Route path="/project/js/try" element={<Try />} />
             <Route path="/project/js/quiz" element={<QuizContainer />} />
-            <Route path='/project/practicejs' element={<LiveWebEditor />} />
+            <Route path='/project/practicejs' element={<LiveWebEditor />} /> */}
 
           </Routes>
       </div>

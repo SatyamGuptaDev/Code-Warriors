@@ -81,13 +81,7 @@ useEffect(() => {
       // Simulate a delay for 4 seconds before loading the project page
       setTimeout(() => {
         // navigate to project page with useNavigate hook
-        if(isLogin){
-          navigate("/auth");
-        }
-        else{
           navigate("/project");
-
-        }
 
       }, 1000);
     };
