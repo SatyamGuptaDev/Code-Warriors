@@ -7,17 +7,29 @@ import { BiHomeSmile, BiUser } from 'react-icons/bi';
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2';
 import { FiSettings, FiShoppingCart } from 'react-icons/fi';
 import { IoMdHelpCircleOutline } from 'react-icons/io';
-
-
-
+import { AiOutlineLogout } from 'react-icons/ai';
  import { FaLaptopCode } from 'react-icons/fa';
-// import icon lelated to JS
 import { SiJavascript } from 'react-icons/si';
 
 
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../store/auth-slice';
+
+
 
 export const Sidebar = () => {
+
+const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    dispatch(authActions.logout());
+    
+    window.location.href = '/';
+  };
+
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   useClickAway(ref, () => setOpen(false));
@@ -80,10 +92,24 @@ export const Sidebar = () => {
               </ul>
                 {/* add a second section will be at the bottom of side bar and take values from secondsection array */}
               <ul className="absolute bottom-0 w-full">
-                {secondSection.map((item, idx) => {
-                  const { title, href, Icon } = item;
-                  return (
-                    <li key={title}>
+
+              {secondSection.map((item, idx) => {
+                const { title, href, Icon } = item;
+                return (
+                  <li key={title}>
+                    {title === 'Logout' ? (
+                      <button
+                        onClick={handleLogout}
+                        className="flex items-center justify-between gap-5 p-5 transition-all border-b-2 hover:bg-zinc-900 border-zinc-800"
+                      >
+                        <motion.div {...framerIcon}>
+                          <Icon className="text-white text-2xl" />
+                        </motion.div>
+                        <motion.span {...framerText(idx)} style={{ color: 'white' }}>
+                          {title}
+                        </motion.span>
+                      </button>
+                    ) : (
                       <Link
                         onClick={toggleSidebar}
                         to={href}
@@ -96,9 +122,13 @@ export const Sidebar = () => {
                           <Icon className="text-white text-2xl" />
                         </motion.div>
                       </Link>
-                    </li>
-                  );
-                })}
+                    )}
+                  </li>
+                );
+              })}
+
+
+
               <li className=" font-sans font-bold text-1xl text-center  p-2 transition-all   border-b-2 hover:bg-zinc-900 border-zinc-800">
                 CODE WARRIORS
               </li>
@@ -124,7 +154,9 @@ const items = [
 const secondSection = [
   { title: 'Home', Icon: BiHomeSmile, href: '/' },
   { title: 'About', Icon: BiUser, href: '/about' },
+  { title: 'Logout', Icon: AiOutlineLogout, href: '/logout' }, // Add this line
 ];
+
 
 const framerSidebarBackground = {
   initial: { opacity: 0 },

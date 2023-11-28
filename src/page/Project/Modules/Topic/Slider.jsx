@@ -101,7 +101,9 @@ function Slider({infoArray, topicInfo, module}) {
           <div className="content">
             <div className="name">{infoArray[index].name}</div>
             <div className="des">{infoArray[index].des}</div>
-            <Link to={`/project/${module}/learn/${topicInfo[index].code}`} ><button style={{}}>Learn More</button></Link>
+            <Link to={`/project/${module}/learn/${topicInfo[index].code}`} >
+              <button>Learn More</button>
+            </Link>
           </div>
         </div>
       );

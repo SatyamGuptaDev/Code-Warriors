@@ -129,9 +129,9 @@ function QuizContainer({
                   </button>
                 )}
                 {quizEnded && (
-                  <Link to="/project/js"><button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() =>  {}}>
+                  <a href="/project/js"><button className='button-29  bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() =>  {}}>
                     Exit
-                  </button></Link>
+                  </button></a>
                 )}
               </div>
             </div>

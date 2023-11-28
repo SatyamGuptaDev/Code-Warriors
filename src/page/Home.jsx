@@ -6,143 +6,72 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Plx from "react-plx";
 import Volume from "../components/Volume"; 
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 
 const Home = () => {
 
+  const isLogin = useSelector((state) => state.authentication.isAuthenticated);
+
+
+
+
 
   const navigate = useNavigate();
 
+const [showScrollText, setShowScrollText] = useState(true);
+const [showPlayButton, setShowPlayButton] = useState(false);
+const [showPressEnter, setShowPressEnter] = useState(false);
+const [pressedEnter, setPressedEnter] = useState(false);
+const playButtonRef = useRef(null);
 
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
 
-  const [showScrollText, setShowScrollText] = useState(true);
-  const [showPlayButton, setShowPlayButton] = useState(false);
-  const [showPressEnter, setShowPressEnter] = useState(false);
-  const [pressedEnter, setPressedEnter] = useState(false);
-  const playButtonRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      if (scrollY > 100) {
-        setShowScrollText(false);
-      } else {
-        setShowScrollText(true);
-      }
-
-      if (
-        scrollY >=
-        document.documentElement.scrollHeight - window.innerHeight
-      ) {
-        setShowPlayButton(true);
-      } else {
-        setShowPlayButton(false);
-      }
-    };
-
-    const handleKeyPress = (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        setPressedEnter(true);
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: "smooth",
-        });
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyPress);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-
-
-  const handleMouseOver = (item) => {
-    const cursorBorder = document.querySelector("#cursor-border");
-
-    if (item.dataset.cursor === "pointer") {
-      cursorBorder.style.backgroundColor = "rgba(255, 255, 255, .6)";
-      cursorBorder.style.setProperty("--size", "30px");
+    if (scrollY > 100) {
+      setShowScrollText(false);
+    } else {
+      setShowScrollText(true);
     }
-    if (item.dataset.cursor === "pointer2") {
-      cursorBorder.style.backgroundColor = "white";
-      cursorBorder.style.mixBlendMode = "difference";
-      cursorBorder.style.setProperty("--size", "80px");
+
+    if (scrollY >= document.documentElement.scrollHeight - window.innerHeight) {
+      setShowPlayButton(true);
+    } else {
+      setShowPlayButton(false);
     }
   };
 
-  const handleMouseOut = () => {
-    const cursorBorder = document.querySelector("#cursor-border");
-    cursorBorder.style.backgroundColor = "unset";
-    cursorBorder.style.mixBlendMode = "unset";
-    cursorBorder.style.setProperty("--size", "50px");
-  };
-
-  useEffect(() => {
-    const items = document.querySelectorAll("[data-cursor]");
-    items.forEach(item => {
-      item.addEventListener("mouseover", () => handleMouseOver(item));
-      item.addEventListener("mouseout", handleMouseOut);
-    });
-
-    return () => {
-      items.forEach(item => {
-        item.removeEventListener("mouseover", () => handleMouseOver(item));
-        item.removeEventListener("mouseout", handleMouseOut);
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      setPressedEnter(true);
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
       });
-    };
-  }, []);
-
-
-  
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [cursorBorderPos, setCursorBorderPos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const cursor = document.querySelector("#cursor");
-    const cursorBorder = document.querySelector("#cursor-border");
-
-    document.addEventListener("mousemove", (e) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    });
-
-    const easting = 8;
-    function loop() {
-      setCursorBorderPos(prevPos => ({
-        x: prevPos.x + (cursorPos.x - prevPos.x) / easting,
-        y: prevPos.y + (cursorPos.y - prevPos.y) / easting
-      }));
-      cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
-      requestAnimationFrame(loop);
     }
-    requestAnimationFrame(loop);
+  };
 
-  }, [cursorPos, cursorBorderPos]);
+  document.addEventListener("keydown", handleKeyPress);
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    document.removeEventListener("keydown", handleKeyPress);
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
 
 
-
-  // const animateCircle = () => {
-  //   //when user clicks the play button then the cursor will animate and become a circle bigger and bigger and then cover the whole screen with its white color for the time until the project page loads, the animation of the circle becoming bigger will be for 4 seconds and then the /project page will load
-
-    
-  // }
 
 
     const animateCircle = () => {
-      // Get references to the cursor and cursor border elements
+
       const cursor = document.getElementById("cursor");
       const cursorBorder = document.getElementById("cursor-border");
       const PlayBTN = document.getElementById("play-btn-home");
 
-      // Add CSS styles to animate the cursor
+
       PlayBTN.style.display = "none";
       cursor.style.visibility = "visible";
       cursor.style.transition = "transform 3s ease-in, background 1s ease-out";
@@ -152,7 +81,13 @@ const Home = () => {
       // Simulate a delay for 4 seconds before loading the project page
       setTimeout(() => {
         // navigate to project page with useNavigate hook
-        navigate("/project");
+        if(isLogin){
+          navigate("/auth");
+        }
+        else{
+          navigate("/project");
+
+        }
 
       }, 1000);
     };
