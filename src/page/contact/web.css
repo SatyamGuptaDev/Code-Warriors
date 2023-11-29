@@ -1,8 +1,6 @@
 .contact-body {
-    background: #0f2027; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
     font-family: 'Overpass Mono', monospace;
     width: 100vw;
     height: 100vh;
@@ -151,7 +149,7 @@
     width: 100%;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #757575;
+    border-bottom: 1px solid #cfcfcf;
     padding: 1.5%;
     font-size: 20px;
 }
@@ -169,7 +167,7 @@
 }
 
 .contact-body label {
-    color: #757575;
+    color: #bbbbbb;
     position: relative;
     left: 0.5em;
     top: -2em;

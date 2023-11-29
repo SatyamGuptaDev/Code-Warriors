@@ -16,6 +16,7 @@ import MdSelectPy from './page/Project/MdSelect-py';
 import Auth from './page/Auth/index';
 import Progress from './page/Project/progress/card';
 import Contact from './page/contact/Contact';
+import DoubSolver from './page/ChatBot/ChatBot';
 
 import { useSelector } from 'react-redux';
 
@@ -51,6 +52,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/auth/*" element={<Auth />} />
+            <Route path="/doubt-solver" element={<DoubSolver />} />
 
 
 

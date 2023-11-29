@@ -38,7 +38,7 @@ function Contact() {
             </div>
 
             <div className="textarea-group">
-              <textarea name="message" id="message" rows="5" placeholder="Message"></textarea>
+              <textarea name="message" id="message" rows="2" placeholder="Message"></textarea>
               <label htmlFor="message">Message</label>
             </div>
 

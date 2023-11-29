@@ -10,6 +10,8 @@ import { IoMdHelpCircleOutline } from 'react-icons/io';
 import { AiOutlineLogout } from 'react-icons/ai';
  import { FaLaptopCode } from 'react-icons/fa';
 import { SiJavascript } from 'react-icons/si';
+import { FaRobot } from "react-icons/fa";
+
 
 import { GiProgression } from "react-icons/gi";
 
@@ -148,6 +150,7 @@ const items = [
    { title: 'Select Language', Icon: FaLaptopCode  , href: '/project' },
   { title: 'Practice JS', Icon: SiJavascript , href: '/project/practicejs' },
   { title: 'Progress', Icon: GiProgression , href: '/project/progress' },
+  {title: 'Doubt Solver', Icon: FaRobot, href: '/doubt-solver'}
 
 
   // { title: '', Icon: , href: '/developers' },
