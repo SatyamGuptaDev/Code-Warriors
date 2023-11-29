@@ -10,7 +10,7 @@ import { Sidebar } from '../../components/SideBar';
 function MdSelectPy() {
     const [mdLevel, setMdLevel] = useState({
         md1: true,
-        md2: true,
+        md2: false,
         md3: false,
         md4: false,
     })

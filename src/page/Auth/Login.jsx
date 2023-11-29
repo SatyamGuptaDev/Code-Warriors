@@ -45,40 +45,45 @@ const Login = ({ setUserState }) => {
     setIsSubmit(true);
 
     if (Object.keys(errors).length === 0) {
-      // Retrieve user registrations from local storage
-      const userRegistrations = JSON.parse(localStorage.getItem('userRegistrations')) || [];
-
-      // Check if the provided email and password match any user in local storage
-      const matchingUser = userRegistrations.find(
-        (registeredUser) => registeredUser.email === user.email && registeredUser.password === user.password
-      );
-
-      if (matchingUser) {
+      // Check if the provided email and password match the special case
+      if (user.email === "sgatsatyam@gmail.com" && user.password === "satyamgupta") {
         // Simulate a server response with a delay
         setTimeout(() => {
           dispatch(authActions.login()); // Simulated dispatch
-          setUserState(matchingUser);
+          const loggedInUser = { email: "sgatsatyam@gmail.com", password: "satyamgupta" };
+          setUserState(loggedInUser);
+          localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
           navigate("/project", { replace: true });
         }, 2000);
       } else {
-        // Simulate a server response with a delay
-        setTimeout(() => {
-          alert("Invalid email or password");
-        }, 2000);
+        // Retrieve user registrations from local storage
+        const userRegistrations = JSON.parse(localStorage.getItem('userRegistrations')) || [];
+
+        // Check if the provided email and password match any user in local storage
+        const matchingUser = userRegistrations.find(
+          (registeredUser) => registeredUser.email === user.email && registeredUser.password === user.password
+        );
+
+        if (matchingUser) {
+          // Simulate a server response with a delay
+          setTimeout(() => {
+            dispatch(authActions.login()); // Simulated dispatch
+            setUserState(matchingUser);
+            // Save the user information in local storage
+            localStorage.setItem('loggedInUser', JSON.stringify(matchingUser));
+            navigate("/project", { replace: true });
+          }, 2000);
+        } else {
+          // Simulate a server response with a delay
+          setTimeout(() => {
+            alert("Invalid email or password");
+          }, 2000);
+        }
       }
     }
   };
 
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      // You may not need this part for local storage as you are not making an actual API call
-      // axios.post("http://localhost:9002/login", user).then((res) => {
-      //   alert(res.data.message);
-      //   setUserState(res.data.user);
-      //   navigate("/", { replace: true });
-      // });
-    }
-  }, [formErrors, isSubmit]);
+
 
   return (
     <div className={loginstyle.login}>

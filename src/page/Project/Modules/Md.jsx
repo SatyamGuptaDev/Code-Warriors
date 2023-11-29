@@ -92,7 +92,7 @@ export function Md1() {
       {
         name: 'Events and Event Handling',
         des: 'Learn how to work with events in web development. This includes event listeners, event handling functions, and responding to user interactions on a webpage.',
-      isUnlock: false,
+      isUnlock: true,
     },
 
         {
@@ -108,29 +108,29 @@ export function Md1() {
         {
             name: 'Operators and Expressions',
             des: 'Explore the various operators in JavaScript for arithmetic, comparison, and logical operations. Understand how to create expressions using these operators.',
-          isUnlock: false,
+          isUnlock: true,
         },
         {
             name: 'Conditional Statements (if, else if, else)',
             des: 'Discover how to implement conditional logic using if, else if, and else statements, allowing your code to make decisions based on specific conditions.',
-          isUnlock: false,
+          isUnlock: true,
         },
         {
             name: 'Loops (for, while)',
             des: 'This section covers the use of loops like "for" and "while" to execute code repeatedly. Learn how to iterate through arrays and perform other repetitive tasks efficiently.',
-          isUnlock: false,
+          isUnlock: true,
         },
         {
     
             name: 'Functions and Scope',
             des: 'Understand the concept of functions in JavaScript, how to create them, and how they relate to scope, including local and global scope.',
-          isUnlock: false,
+          isUnlock: true,
         }
         ,
         {
             name: 'Arrays and Objects',
             des: 'Dive into the manipulation of data structures in JavaScript. Explore arrays and objects, which are crucial for organizing and storing data.',
-          isUnlock: false,
+          isUnlock: true,
         },
  
       ]
@@ -240,7 +240,7 @@ export function Md2() {
       {
         name: 'Event Listeners and Event Handling',
         des: 'Explore how to add event listeners to DOM elements and handle events like clicks, mouseovers, and keyboard interactions.',
-        isUnlock: false,
+        isUnlock: true,
       },
       {
         name: 'Changing CSS and Styles',

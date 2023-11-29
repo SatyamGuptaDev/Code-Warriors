@@ -8,12 +8,28 @@ import { Sidebar } from '../../components/SideBar';
 
 
 function ModuleSelect() {
-    const [mdLevel, setMdLevel] = useState({
+    const mdLevel = {
         md1: true,
         md2: true,
-        md3: true,
+        md3: false,
         md4: false,
-    })
+    }
+    const mdLevelSpecial = {
+        md1: true,
+        md2: false,
+        md3: false,
+        md4: false,
+    }
+
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const isLoggedIn =
+      loggedInUser &&
+      loggedInUser.email === 'sgatsatyam@gmail.com' &&
+      loggedInUser.password === 'satyamgupta';
+
+    
+  
+
 
     useEffect(() => {
         AOS.init({

@@ -10,7 +10,25 @@ import  {Sidebar}  from '../../../components/SideBar';
 function Card() {
 
   const signUpDate = '20230101'; // YYYYMMDD format
-  const visitedDates = ['20230201', '20230205', '20230214']; // Replace with actual user data
+  const visitedDates = ['20231107','20231108','20231109','20231028','20231129','20231125','20231126','20231127','20231127', '20231128', '20231129']; // Replace with actual user data
+
+
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  const isLoggedIn =
+    loggedInUser &&
+    loggedInUser.email === 'sgatsatyam@gmail.com' &&
+    loggedInUser.password === 'satyamgupta';
+
+
+  // Set visited dates to today's date if not logged in or credentials don't match
+  const jsprogress = isLoggedIn
+    ? 28
+    : 0;
+
+  const pyprogress = isLoggedIn
+    ? 8 
+    : 0;
+
 
   const cardRef1 = useRef(null);
   const cardRef2 = useRef(null);
@@ -49,8 +67,9 @@ function Card() {
           
           <div className="card-text card2">
 
-            <ProgressBar completed={38} bgColor="linear-gradient(to right, #6a11cb 0%, #2575fc 100%)" animateOnRender={true} />
+            <ProgressBar completed={jsprogress} bgColor="linear-gradient(to right, #6a11cb 0%, #2575fc 100%)" animateOnRender={true} />
 
+            {isLoggedIn ? <p className='text-white text-center  font-mono text-2xl mt-2 mb-6'>You have completed {jsprogress} % of the course</p> : <p className='text-white text-center  font-mono text-2xl mt-2 mb-6'>You have completed 0 % of the course</p>}
           </div>
                       
 
@@ -62,12 +81,13 @@ function Card() {
           <div className='container-js-card'>
                           <img className='img-js w-20 pb-8' src='https://cdn.iconscout.com/icon/free/png-512/python-14-569257.png' alt='js' />
                           <h1 className='text-white text-center  font-mono text-2xl mt-2 mb-6'>Python</h1>
+
           </div>
           
           <div className="card-text card2">
 
-            <ProgressBar completed={13} bgColor="linear-gradient(to right, #6a11cb 0%, #2575fc 100%)" animateOnRender={true} />
-
+            <ProgressBar completed={pyprogress} bgColor="linear-gradient(to right, #6a11cb 0%, #2575fc 100%)" animateOnRender={true} />
+            {isLoggedIn ? <p className='text-white text-center  font-mono text-2xl mt-2 mb-6'>You have completed {pyprogress} % of the course</p> : <p className='text-white text-center  font-mono text-2xl mt-2 mb-6'>You have completed 0 % of the course</p>}
           </div>
 
         </div>

@@ -1,41 +1,42 @@
 /* src/UserActivityHeatmap.css */
 .user-activity-container {
-    width: 1165px;
-    overflow: auto; /* Add overflow property to allow scrolling if content exceeds container size */
-    border: 1px solid #ccc; /* Optional: Add border for visual clarity */
-    padding: 25px;
-    color: rgba(255, 255, 255, 0.648);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    border-radius: 20px;
-  }
-  
-  .user-activity-heatmap {
-    display: flex;
-    align-items: center;
-    justify-content: self-start;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  
-  .month {
-    margin-bottom: 20px;
-    margin-right: 20px;
-  }
-  
-  .week-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2px;
-  }
-  
-  .day {
-    width: 15px;
-    height: 15px;
-    background-color: rgb(77, 77, 77);
-  }
-  
-  .visited {
-    background-color: #00ff08; /* or any color you prefer */
-  }
-  
+  width: 899px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  padding: 25px;
+  color: rgb(255, 255, 255);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.user-activity-heatmap {
+  display: flex;
+  align-items: center;
+  justify-content: self-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.month {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns for each day of the week */
+  grid-template-rows: repeat(5, 1fr); /* 5 rows for each week in a month */
+  gap: 2px;
+}
+
+.day {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(77, 77, 77);
+}
+
+.visited {
+  background-color: #00ff08;
+}

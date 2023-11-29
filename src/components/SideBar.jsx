@@ -162,7 +162,7 @@ const items = [
 const secondSection = [
   { title: 'Home', Icon: BiHomeSmile, href: '/' },
   { title: 'About', Icon: BiUser, href: '/about' },
-  { title: 'Logout', Icon: AiOutlineLogout, href: '/logout' }, // Add this line
+  { title: 'Logout', Icon: AiOutlineLogout, href: '/auth' }, // Add this line
 ];
 
 

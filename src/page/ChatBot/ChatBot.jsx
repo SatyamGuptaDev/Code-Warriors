@@ -18,11 +18,19 @@ function Chatbot() {
     const createChatLi = (message, className = "outgoing") => {
       const chatLi = document.createElement("li");
       chatLi.classList.add("chat", className);
-      let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+    
+      let chatContent =
+        className === "outgoing"
+          ? '<p></p>'
+          : '<span style="display: flex; justifyContent: center; alignItems: center;">' +
+            '<FaRobot class="farobot" style="width: 20px; height: 20px;"></FaRobot>' +
+            '</span><p></p>';
+    
       chatLi.innerHTML = chatContent;
       chatLi.querySelector("p").textContent = message;
       return chatLi;
     };
+    
 
     const generateResponse = (chatElement) => {
       const API_URL = "https://generativelanguage.googleapis.com/v1beta3/models/text-bison-001:generateText";
